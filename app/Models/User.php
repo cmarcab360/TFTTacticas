@@ -47,7 +47,4 @@ class User extends Authenticatable
     public function team(){
         return $this->hasMany(Team::class);
     }
-    public function rol(){
-        return $this->belongsTo(Rol::class, 'rol');
-    }
 }
