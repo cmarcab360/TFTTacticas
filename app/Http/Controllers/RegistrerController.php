@@ -15,11 +15,16 @@ class RegistrerController extends Controller
     public function store(){
         $attributes = request()->validate([
             'name'=>'required|max:255',
-            'username'=>'required|max:255|min:3',
-            'email'=>'required|email|max:255',
+            'username'=>'required|max:255|min:3|unique:users,username',//unique:users,username-> comprueba que este valor en la tabla users y la columna username, sea único
+            'email'=>'required|email|max:255|unique:users,email',
             'password'=>'required|max:255'
         ]);
-        User::create($attributes);
-        return redirect('/');
+        //Se llama al mutator setPasswordAttributes automaticamente porque hago User->password
+        $user = User::create($attributes);
+        //Mantener el usuario logueado
+        auth()->login($user);
+        //Mensaje flash guardado en session en caso de success
+        session()->flash('success', 'Tu cuenta ha sido creada con exito.');
+        return redirect('/profile');//Cambiar a "/profile" cuando se cree
     }
 }
