@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RegistrerController;
+use App\Http\Controllers\CreateTeamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,7 @@ Route::get('/', function () {
 //Registro
 Route::get('/register', [RegistrerController::class, 'create']);
 Route::post('/register', [RegistrerController::class, 'store']);
+
+//Agregar equipo
+Route::get('/createTeam', [CreateTeamController::class, 'createTeam']);
+Route::post('/createTeam', [CreateTeamController::class, 'storeTeam']);
