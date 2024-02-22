@@ -43,7 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    public function setPasswordAttribute($password){//Mutator, automaticamente se llama a esta función cuando hago $user->password = algo
+        $this->attributes['password'] = bcrypt($password);
+    }
     public function team(){
         return $this->hasMany(Team::class);
     }
