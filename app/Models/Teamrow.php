@@ -9,7 +9,7 @@ class Teamrow extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'team_id', 'position', 'item1', 'item2', 'item3'];
+    protected $fillable = ['team_id', 'character_id', 'position', 'item1', 'item2', 'item3'];
 
     public function team(){
         return $this->belongsTo(Team::class, 'id');

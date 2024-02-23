@@ -29,7 +29,11 @@ class CreateTeamController extends Controller
         // Crear un nuevo equipo en la base de datos
         Team::create($attributes);
 
-        return redirect('/');
+        //Consiguir el ultimo id creado y envialor al CreateRow
+        $id = Team::latest('id')->first();
+
+        return redirect('/createRow')
+        ->with('team_id', $id);
         
     }
 }
