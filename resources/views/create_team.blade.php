@@ -37,13 +37,11 @@
                 <p>{{ $message }}</p>
             @enderror
 
-            <div>
-                <label for="user_id">Nº id user:</label>
-                <input type="number" name="user_id" id="user_id" required>
-                @error('user_id')
-                    <p>{{ $message }}</p>
-                @enderror
-            </div>
+            <!-- Campo oculto para almacenar user_id -->
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+
+            <!-- Campo oculto para almacenar team_id -->
+            <input type="hidden" name="team_id" value="{{ session('team_id') }}">
 
             <button type="submit">Crear Equipo</button>
         </form>
