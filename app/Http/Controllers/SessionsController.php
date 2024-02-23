@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
@@ -18,6 +19,10 @@ class SessionsController extends Controller
         //Intentar Autenticar y login según los datos dados
         if(auth()->attempt($attributes)){
             session()->regenerate();//Para más seguridad se regenera la ID Session
+            //Propagación id usuario y si es admin o no
+            session(['user_id' => Auth::user()->id]);
+            session(['admin' => Auth::user()->admin]);
+
             return redirect('/profile')->with('success','Bienvenido!');
         }
         //Fallo de autenticacion withInput()->Deja los datos en los inputs cuando hay un error withErrors->personalizo el mensaje de la variable $errors de email
