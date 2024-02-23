@@ -27,13 +27,11 @@ class CreateTeamController extends Controller
         ]);
        
         // Crear un nuevo equipo en la base de datos
-        Team::create($attributes);
+        $team = Team::create($attributes);
+        //Propagación id equipo
+        session(['team_id' => $team->id]);
 
-        //Consiguir el ultimo id creado y envialor al CreateRow
-        $id = Team::latest('id')->first();
-
-        return redirect('/createRow')
-        ->with('team_id', $id);
+        return redirect('/createRow');
         
     }
 }
