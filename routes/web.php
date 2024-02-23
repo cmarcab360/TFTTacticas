@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\RegistrerController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PersonalTeamController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +17,9 @@ use App\Http\Controllers\PersonalTeamController;
 //Ruta para login
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('login');
 //Ruta del perfil
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/profile', [ProfileController::class, 'profile'])->middleware('auth');
 //Ruta Registro / ->middleware('guest') -> Estas rutas solo tienen logica cuando el usuario no está logueado,SOLO si eres un guest entras aqui (auth , caso contrario)
 Route::get('/register', [RegistrerController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegistrerController::class, 'store'])->middleware('guest');
-Route::get('/personalTeam', [PersonalTeamController::class, 'personalTeam']);

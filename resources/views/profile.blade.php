@@ -4,5 +4,10 @@
         <p>{{session('success')}}</p>
     </div>
 @endif
-
+<x-layout>
+@foreach($teams as $team)
+    <p>Nombre del equipo: {{ $team->team_name }}</p>
+    <hr>
+@endforeach
+</x-layout>
 <!--Logout-->
