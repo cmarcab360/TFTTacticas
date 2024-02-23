@@ -18,9 +18,6 @@ return new class extends Migration
             $table->foreignId('character_id');
             $table->foreignId('team_id');
             $table->string('position');
-            $table->string('item1');
-            $table->string('item2');
-            $table->string('item3');
             $table->timestamps();
         });
     }
