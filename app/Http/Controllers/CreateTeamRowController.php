@@ -16,14 +16,14 @@ class CreateTeamRowController extends Controller
 
         // Validación de campos
         $request->validate([
-            'character_id' => 'required|integer',
+            'character_id' => 'required|string',
             'team_id' => 'required|integer',
             'position' => 'required|integer'
         ]);      
 
         //Añade una nueva row con los datos introducidos en el formulario a la base de datos
         Teamrow::create([
-            'character_id' => $request->input('character_id'),
+            'character_id' => 'TFT10_' . $request->input('character_id'),
             'team_id' => $request->input('team_id'),
             'position' => $request->input('position')
         ]);

@@ -5,11 +5,14 @@
     <section>
         <h3>Creacion de equipo</h3>
 
+        <div id="contenedor"></div>
+
         <form action="/createRow" method="post">
             @csrf
             <div>
                 <label for="character_id">Campeon:</label>
-                <input type="number" name="character_id" id="character_id" required>
+                <input list="campeonesList" name="character_id" id="character_id" />
+                <datalist id="campeonesList"></datalist>
                 @error('character_id')
                     <p>{{ $message }}</p>
                 @enderror
@@ -37,7 +40,7 @@
             <table>
                 @foreach (session('teamRows') as $row)
                     <tr>
-                        <td>{{ $row->character_id }}</td>
+                    <td class="campeon">{{ str_replace('TFT10_', '', $row->character_id) }}</td>
                         <td>{{ $row->position }}</td>
                     </tr>
                 @endforeach
@@ -46,5 +49,5 @@
         @endif
         <a href="/profile">Volver a la pagina principal</a>
     </section>
-
+    <script src="{{ asset('filtradoPersonajesCreateRow.js') }}"></script>
 </x-layout>

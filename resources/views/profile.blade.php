@@ -7,10 +7,16 @@
 <!--Bucle que muestra los equipos que has creado en tu perfil (en curso)-->
 <x-layout>
 @foreach($teams as $team)
+    <div>
     <p>Nombre del equipo: {{ $team->team_name }}</p>
     <p>Victorias: {{ $team->victories }}</p>
-    <hr>
+    <div id="contenido">
+        
+    </div>
+    </div>
+    
 @endforeach
+<script src="{{ asset('filtradoPersonajesProfile.js') }}"></script>
 </x-layout>
 <!--Mensaje bienvenida-->
 <span>Welcome, {{auth()->user()->name}}</span>
