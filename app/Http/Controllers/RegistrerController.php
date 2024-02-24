@@ -23,6 +23,9 @@ class RegistrerController extends Controller
         $user = User::create($attributes);
         //Mantener el usuario logueado
         auth()->login($user);
+        //Propagación id usuario y si es admin o no
+        session(['user_id' => $user->id]);
+        session(['admin' => $user->admin]);
         //Mensaje flash guardado en session en caso de success
         session()->flash('success', 'Tu cuenta ha sido creada con exito.');
         return redirect('/profile');//Cambiar a "/profile" cuando se cree

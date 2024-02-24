@@ -15,25 +15,33 @@ class CreateTeamController extends Controller
         return view('create_team');
     }
 
-    public function storeTeam()
+    public function storeTeam(Request $request)
     {
-        // Validación de campos
-        $attributes = request()->validate([
+
+        //Validacion de campos
+        $request->validate([
             'team_name' => 'required|string|max:20',
             'victories' => 'integer',
             'num_match' => 'integer',
             'meta'=> 'required|boolean',
             'user_id' => 'required|integer'
         ]);
-       
+    
         // Crear un nuevo equipo en la base de datos
-        Team::create($attributes);
+        $team = Team::create([
+            'team_name' => $request->input('team_name'),
+            'victories' => $request->input('victories'),
+            'num_match' => $request->input('num_match'),
+            'meta' => auth()->user()->admin ? 1 : 0, // si el usuario es admin el grupo es meta por defecto
+            'user_id' => $request->input('user_id'), 
 
-        //Consiguir el ultimo id creado y envialor al CreateRow
-        $id = Team::latest('id')->first();
+        ]);
 
-        return redirect('/createRow')
-        ->with('team_id', $id);
+        //$team = Team::create($attributes);
+        //Propagación id equipo
+        session(['team_id' => $team->id]);
+
+        return redirect('/createRow');
         
     }
 }

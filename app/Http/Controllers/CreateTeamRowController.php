@@ -13,8 +13,6 @@ class CreateTeamRowController extends Controller
 
     public function storeRow(Request $request)
     {
-        //Se recupera el ultimo id del team creado
-        $team_id = session('team_id');
 
         // Validación de campos
         $request->validate([
@@ -23,15 +21,17 @@ class CreateTeamRowController extends Controller
             'position' => 'required|integer'
         ]);      
 
-        // Crear un nueva linea del equipo
+        //Añade una nueva row con los datos introducidos en el formulario a la base de datos
         Teamrow::create([
             'character_id' => $request->input('character_id'),
             'team_id' => $request->input('team_id'),
             'position' => $request->input('position')
         ]);
    
+        // Obtiene todas las filas del equipo con ese id
+        $teamRows = Teamrow::where('team_id', $request->input('team_id'))->get();
 
-        return redirect('/');
+        return redirect('/createRow')->with(compact('teamRows'));
         
     }
 }
