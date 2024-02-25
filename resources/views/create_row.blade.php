@@ -2,7 +2,6 @@
 <x-header />
     <!--Propagación de id usuario y si es admin-->
     <p>Id team:{{ session('team_id') }}</p>
-    @dump(session()->all())
     <section>
         <h3>Creacion de equipo</h3>
 
