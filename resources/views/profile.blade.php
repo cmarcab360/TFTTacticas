@@ -6,6 +6,7 @@
 @endif
 <!--Bucle que muestra los equipos que has creado en tu perfil (en curso)-->
 <x-layout>
+<x-header />
 @foreach($teams as $team)
     <div>
     <p>Nombre del equipo: {{ $team->team_name }}</p>
@@ -13,21 +14,29 @@
     <div id="contenido">
         
     </div>
+    <form action="/profile" method="POST">
+        @csrf
+        @method('DELETE')
+        
+        <input type="hidden" name="team_id" value="{{$team->id}}">
+        <input type="submit" value="Eliminar equipo">
+    </form>
     </div>
     
 @endforeach
-<script src="{{ asset('filtradoPersonajesProfile.js') }}"></script>
-</x-layout>
-<!--Mensaje bienvenida-->
-<span>Welcome, {{auth()->user()->name}}</span>
-<!--Logout-->
-<form action="/logout" method="POST">
-    @csrf
-    <button type="submit">Log Out</button>
-</form>
+
 <!--Boton crear equipo-->
 <button><a href="/createTeam"> Crear equipo</a></button>
 <!--Propagación de id usuario y si es admin-->
 <p>Id usuario:{{session('user_id')}}</p>
 <p>Admin:{{session('admin')}}</p>
+
+
+<!--Script-->
+<script src="{{ asset('filtradoPersonajesProfile.js') }}"></script>
+
+</x-layout>
+
+
+
 

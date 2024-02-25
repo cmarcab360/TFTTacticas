@@ -1,4 +1,5 @@
 <x-layout>
+<x-header />
     <!--Propagación de id usuario y si es admin-->
     <p>Id team:{{ session('team_id') }}</p>
     @dump(session()->all())

@@ -43,7 +43,7 @@ function mostrarDatosApi() {
                 }
             }
 
-            console.log(contenedor);
+            
         });
 }
 
