@@ -13,7 +13,7 @@ class ProfileController extends Controller
         $userId = Auth::id();
 
         // Obtener los equipos del usuario actual filtrando por user_id
-        $teams = Team::where('user_id', $userId)->where('meta', 0)->get(['team_name', 'victories']);
+        $teams = Team::where('user_id', $userId)->where('meta', 0)->get();
 
         // Pasar la variable $teams a la vista
         return view('profile', compact('teams'));

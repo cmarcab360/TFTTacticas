@@ -1,4 +1,5 @@
 <x-layout>
+<x-header />
     <section>
         <h3>Listado de Campeones</h3>
 
