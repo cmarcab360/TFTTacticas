@@ -4,5 +4,22 @@
         <p>{{session('success')}}</p>
     </div>
 @endif
-
+<x-layout>
+@foreach($teams as $team)
+    <p>Nombre del equipo: {{ $team->team_name }}</p>
+    <hr>
+@endforeach
+</x-layout>
+<!--Mensaje bienvenida-->
+<span>Welcome, {{auth()->user()->name}}</span>
 <!--Logout-->
+<form action="/logout" method="POST">
+    @csrf
+    <button type="submit">Log Out</button>
+</form>
+<!--Boton crear equipo-->
+<button><a href="/createTeam"> Crear equipo</a></button>
+<!--Propagación de id usuario y si es admin-->
+<p>Id usuario:{{session('user_id')}}</p>
+<p>Admin:{{session('admin')}}</p>
+
