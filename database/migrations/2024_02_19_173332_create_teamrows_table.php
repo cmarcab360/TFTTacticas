@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('teamrows', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('character_id');
+            $table->string('character_id');
             $table->foreignId('team_id');
             $table->string('position');
             $table->timestamps();

@@ -24,9 +24,6 @@ class TeamrowFactory extends Factory
             'character_id' => fake()->numberBetween(0, 100),
             'team_id' => Team::factory(),
             'position' => fake()->numberBetween(1, 28),
-            'item1' => fake()->sentence(1),
-            'item2' => fake()->sentence(1),
-            'item3' => fake()->sentence(1),
         ];
     }
 }
