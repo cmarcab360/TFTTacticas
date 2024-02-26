@@ -6,6 +6,7 @@ window.onload = iniciar;
 function iniciar() {
     contenedor = document.getElementById("contenedor");
     contenido = document.getElementById("contenido");
+    positionInput = document.getElementById("position");
 }
 
 function mostrarDatosApi() {
@@ -18,42 +19,132 @@ function mostrarDatosApi() {
             const uniqueDisplayNames = new Set();
 
             for (let i = 0; i < data2.length; i++) {
-                if (data2[i].character_record.character_id.startsWith("TFT10_")) {
+                if (
+                    data2[i].character_record.character_id.startsWith("TFT10_")
+                ) {
                     const displayName = data2[i].character_record.display_name;
 
                     // Verificar si el nombre ya está en el Set
-                    if (uniqueDisplayNames.has(displayName) ||
+                    if (
+                        uniqueDisplayNames.has(displayName) ||
                         data2[i].character_record.display_name === "Hexcore" ||
                         data2[i].character_record.display_name === "GnarBig" ||
-                        data2[i].character_record.display_name === "LuluPolymorphCritter" ||
+                        data2[i].character_record.display_name ===
+                            "LuluPolymorphCritter" ||
                         data2[i].character_record.display_name === "Tentacle" ||
-                        data2[i].character_record.display_name === "The Dreadsteed" ||
-                        data2[i].character_record.display_name === "SightWard") {
+                        data2[i].character_record.display_name ===
+                            "The Dreadsteed" ||
+                        data2[i].character_record.display_name === "SightWard"
+                    ) {
                         continue; // Saltar a la siguiente iteración si el nombre ya está en el Set o es uno de los excluidos
                     }
-                    
+
                     // Agregar el nombre al Set
                     uniqueDisplayNames.add(displayName);
 
                     // Agregar el nombre al array contenedor
                     contenedor.push(displayName);
-
                 }
             }
 
-        const datalist = document.getElementById("campeonesList");
+            const datalist = document.getElementById("campeonesList");
+            const div = document.getElementById("iconosFichas");
 
-        // Limpiar opciones existentes
-        datalist.innerHTML = "";
+            // Limpiar opciones existentes
+            datalist.innerHTML = "";
 
-        // Añadir opciones al datalist
-        contenedor.forEach((campeon) => {
-            const option = document.createElement("option");
-            option.value = campeon;
-            datalist.appendChild(option);
-        });
+            // Añadir opciones al datalist
+            contenedor.forEach((campeon) => {
+                const option = document.createElement("option");
+                option.value = campeon;
+                datalist.appendChild(option);
+            });
 
-            console.log(contenedor);
+            contenedor.forEach((campeon) => {
+                const img = document.createElement("img");
+                img.src = `https://raw.communitydragon.org/latest/game/assets/characters/tft10_${campeon
+                    .replace(/[^a-zA-Z0-9]/g, "")
+                    .toLowerCase()}/hud/tft10_${campeon
+                    .replace(/[^a-zA-Z0-9]/g, "")
+                    .toLowerCase()}_square.tft_set10.png`;
+                img.alt = `${campeon}`;
+                img.id = campeon;
+                img.style.width = "75px";
+                img.style.height = "75px";
+                div.appendChild(img);
+            });
+
+            // Agrega un listener para el evento 'keyup'
+            positionInput.addEventListener("keyup", function () {
+                // Obtiene el valor ingresado en el input
+                const positionValue = parseInt(positionInput.value);
+
+                // Restablece el estilo de todas las casillas
+                resetCasillasStyle();
+
+                if (
+                    !isNaN(positionValue) &&
+                    positionValue >= 1 &&
+                    positionValue <= 28
+                ) {
+                    // Ilumina la casilla correspondiente
+                    iluminarCasilla(positionValue);
+                }
+            });
+
+            document
+                .getElementById("addChamp")
+                .addEventListener("click", function (event) {
+                    event.preventDefault();
+
+                    // Obtiene el valor ingresado en el input de posición
+                    const positionValue = parseInt(
+                        document.getElementById("position").value
+                    );
+
+                    // Verifica si el valor es válido y está dentro del rango
+                    if (
+                        !isNaN(positionValue) &&
+                        positionValue >= 1 &&
+                        positionValue <= 28
+                    ) {
+                        // Obtiene el valor del campeón seleccionado
+                        const campeonInput =
+                            document.getElementById("character_id");
+                        const campeonValue = campeonInput.value;
+
+                        // Construye la URL del src de la imagen
+                        const imageUrl = `https://raw.communitydragon.org/latest/game/assets/characters/tft10_${campeonValue
+                            .replace(/[^a-zA-Z0-9]/g, "")
+                            .toLowerCase()}/hud/tft10_${campeonValue
+                            .replace(/[^a-zA-Z0-9]/g, "")
+                            .toLowerCase()}_square.tft_set10.png`;
+
+                        // Actualiza el src de la imagen correspondiente a la posición
+                        const casillaId = "casilla" + positionValue;
+                        const casillaImagen =
+                            document.getElementById(casillaId);
+                        casillaImagen.src = imageUrl;
+                    }
+                });
+
+            function resetCasillasStyle() {
+                const casillas = document.querySelectorAll(
+                    ".casillaPrimeraFila, .casillaSegundaFila, .casillaTerceraFila, .casillaCuartaFila"
+                );
+                casillas.forEach((casilla) => {
+                    casilla.style.backgroundColor = ""; // Restablece el color de fondo
+                });
+            }
+
+            function iluminarCasilla(position) {
+                const casillaId = "casilla" + position;
+                const casillaIluminar = document.getElementById(casillaId);
+
+                // Ilumina la casilla cambiando el color de fondo
+                casillaIluminar.style.backgroundColor = "#FDFD96";
+            }
+
         });
 }
 
