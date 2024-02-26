@@ -32,9 +32,8 @@
             <!-- Campo oculto para almacenar id_team-->
             <input type="hidden" name="team_id" value="{{ session('team_id') }}">
 
+            <button type="submit" id="addChamp">Añadir campeón</button>
 
-            <button type="button" id="addChamp">Añadir campeón</button>
-            <button type="submit">Crear equipo</button>
 
         </form>
 
