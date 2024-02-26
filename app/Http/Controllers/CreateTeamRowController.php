@@ -9,29 +9,50 @@ class CreateTeamRowController extends Controller
     public function createRow()
     {
         return view('create_Row');
-    }   
+    }
 
     public function storeRow(Request $request)
     {
-
         // Validación de campos
         $request->validate([
             'character_id' => 'required|string',
             'team_id' => 'required|integer',
-            'position' => 'required|integer'
-        ]);      
-
-        //Añade una nueva row con los datos introducidos en el formulario a la base de datos
-        Teamrow::create([
-            'character_id' => 'TFT10_' . $request->input('character_id'),
-            'team_id' => $request->input('team_id'),
-            'position' => $request->input('position')
+            'position' => 'required|integer|between:1,28'
         ]);
-   
+
+        // Verifica si ya existe una fila con la misma posición y diferente campeon
+        $ExistePosicion = Teamrow::where('team_id', $request->input('team_id'))
+        ->where('position', $request->input('position'))
+        ->where('character_id', '<>', 'TFT10_' . $request->input('character_id'))
+        ->first();
+
+        // Si existe eliminar esa fila
+        if ($ExistePosicion) {
+            $ExistePosicion->delete();
+        }
+
+        // Verificar si ya existe una fila con el mismo campeon
+        $existeCampeon= Teamrow::where('team_id', $request->input('team_id'))
+            ->where('character_id', 'TFT10_' . $request->input('character_id'))
+            ->first();
+
+        // Si existe actualiza la posición
+        if ($existeCampeon) {
+            $existeCampeon->update([
+                'position' => $request->input('position'),
+            ]);
+        } else {
+            // Si no existe crear una nueva fila con los datos introducidos en el formulario a la base de datos
+            Teamrow::create([
+                'character_id' => 'TFT10_' . $request->input('character_id'),
+                'team_id' => $request->input('team_id'),
+                'position' => $request->input('position')
+            ]);
+        }
+
         // Obtiene todas las filas del equipo con ese id
         $teamRows = Teamrow::where('team_id', $request->input('team_id'))->get();
 
         return redirect('/createRow')->with(compact('teamRows'));
-        
     }
 }

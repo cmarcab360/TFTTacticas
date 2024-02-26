@@ -32,7 +32,7 @@ class CreateTeamController extends Controller
             'team_name' => $request->input('team_name'),
             'victories' => $request->input('victories'),
             'num_match' => $request->input('num_match'),
-            'meta' => auth()->user()->admin ? 1 : 0, // si el usuario es admin el grupo es meta por defecto
+            'meta' => $request->input('meta'), 
             'user_id' => $request->input('user_id'), 
 
         ]);

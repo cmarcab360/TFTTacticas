@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DeleteTeamController;
 use App\Http\Controllers\RegistrerController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CreateTeamController;
@@ -20,6 +21,8 @@ use App\Http\Controllers\ProfileController;
 
 //Ruta del perfil
 Route::get('/profile', [ProfileController::class, 'profile'])->middleware('auth');
+//Eliminar equipo
+Route::delete('/profile', [DeleteTeamController::class, 'destroy']);
 
 Route::get('/',[SessionsController::class, 'create'])->middleware('guest')->name('login');
 Route::post('/',[SessionsController::class, 'store'])->middleware('guest')->name('login');
@@ -40,4 +43,6 @@ Route::post('/createTeam', [CreateTeamController::class, 'storeTeam']);
 //Agregar fila al equipo
 Route::get('/createRow', [CreateTeamRowController::class, 'createRow']);
 Route::post('/createRow', [CreateTeamRowController::class, 'storeRow']);
+
+
 
