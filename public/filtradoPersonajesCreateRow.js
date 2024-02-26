@@ -109,43 +109,6 @@ function mostrarDatosApi() {
                 // Ilumina la casilla cambiando el color de fondo
                 casillaIluminar.style.backgroundColor = "#FDFD96";
             }
-
-            document
-            .getElementById("addChamp")
-            .addEventListener("click", function (e) {
-
-             
-                // Obtiene el valor ingresado en el input de posición
-                const positionValue = parseInt(
-                    document.getElementById("position").value
-                );
-
-                // Verifica si el valor es válido y está dentro del rango
-                if (
-                    !isNaN(positionValue) &&
-                    positionValue >= 1 &&
-                    positionValue <= 28
-                ) {
-                    // Obtiene el valor del campeón seleccionado
-                    const campeonInput =
-                        document.getElementById("character_id");
-                    const campeonValue = campeonInput.value;
-
-                    // Construye la URL del src de la imagen
-                    const imageUrl = `https://raw.communitydragon.org/latest/game/assets/characters/tft10_${campeonValue
-                        .replace(/[^a-zA-Z0-9]/g, "")
-                        .toLowerCase()}/hud/tft10_${campeonValue
-                        .replace(/[^a-zA-Z0-9]/g, "")
-                        .toLowerCase()}_square.tft_set10.png`;
-
-                    // Actualiza el src de la imagen correspondiente a la posición
-                    const casillaId = "casilla" + positionValue;
-                    const casillaImagen =
-                        document.getElementById(casillaId);
-                    casillaImagen.src = imageUrl;
-                }
-            });
-
         });
 }
 

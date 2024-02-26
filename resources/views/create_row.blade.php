@@ -95,22 +95,34 @@
     width: 60px;
     height: 0px;   
 }
-    </style>
+     </style>
 
         <!-- Muestra las todas las filas del team-->
         @if (session('teamRows'))
-            <h4>Campeones seleccionados</h4>
-            <table>
-                @foreach (session('teamRows') as $row)
-                    <tr>
-                    <td class="campeon">{{ str_replace('TFT10_', '', $row->character_id) }}</td>
-                        <td>{{ $row->position }}</td>
-                    </tr>
-                @endforeach
-
-            </table>
-        @endif
+    <h4>Campeones seleccionados</h4>
+    <table>
+        @php
+            $sortedRows = session('teamRows')->sortBy('position');
+        @endphp
+        @foreach ($sortedRows as $row)
+            <tr>
+                <td class="campeon">{{ str_replace('TFT10_', '', $row->character_id) }}</td>
+                <td>{{ $row->position }}</td>
+            </tr>
+        @endforeach
+    </table>
+@endif
         <a href="/profile">Volver a la pagina principal</a>
     </section>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        @if (session('teamRows'))
+            @foreach (session('teamRows') as $row)
+                var imgSrc = "https://raw.communitydragon.org/latest/game/assets/characters/tft10_{{ preg_replace('/[^a-zA-Z0-9]/', '', strtolower(str_replace('TFT10_', '', $row->character_id))) }}/hud/tft10_{{ preg_replace('/[^a-zA-Z0-9]/', '', strtolower(str_replace('TFT10_', '', $row->character_id))) }}_square.tft_set10.png";
+                document.getElementById('casilla{{ $row->position }}').src = imgSrc;
+            @endforeach
+        @endif
+    });
+</script>
     <script src="{{ asset('filtradoPersonajesCreateRow.js') }}"></script>
 </x-layout>
