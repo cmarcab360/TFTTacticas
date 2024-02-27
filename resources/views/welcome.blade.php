@@ -1,12 +1,5 @@
 <x-layout>
-<!--Mensaje de success si logout se ha hecho/ Eliminar este mensaje con javaScript despues de 3 sec-->
-@if(session()->has('success'))
-    <div>
-        <p>{{session('success')}}</p>
-    </div>
-@endif
-hola
-
+    
 <!--Solo si eres un guest, se mostrará el botón de register y el Formulario de log in. Tbn podría ser if(! auth->check())-->
 @guest
 <section>

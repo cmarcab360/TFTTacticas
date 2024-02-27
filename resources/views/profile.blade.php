@@ -1,14 +1,10 @@
 <?php
 use Illuminate\Support\Str; 
 ?>
-<!--Mensaje de success si registo se ha hecho/ Eliminar este mensaje con javaScript despues de 3 sec-->
-@if(session()->has('success'))
-<div>
-    <p>{{session('success')}}</p>
-</div>
-@endif
-<!--Bucle que muestra los equipos que has creado en tu perfil (en curso)-->
 <x-layout>
+
+<!--Bucle que muestra los equipos que has creado en tu perfil (en curso)-->
+
     <x-header />
 
     <style>
@@ -43,13 +39,15 @@ use Illuminate\Support\Str;
                 <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{Str::of($row->character_id)->lower()}}/hud/{{Str::of($row->character_id)->lower()}}_square.tft_set10.png" alt="Champion {{Str::of($row->character_id)->substr(6)}}" title="{{Str::of($row->character_id)->substr(6)}}">
                 @endforeach
             </div>
-            <form action="/profile" method="POST">
-                @csrf
-                @method('DELETE')
+            @if(session('admin') == 1)
+                <form action="/profile" method="POST">
+                    @csrf
+                    @method('DELETE')
 
-                <input type="hidden" name="team_id" value="{{$team->id}}">
-                <input type="submit" value="Eliminar equipo">
-            </form>
+                    <input type="hidden" name="team_id" value="{{$team->id}}">
+                    <input type="submit" value="Eliminar equipo">
+                </form>
+            @endif
             <button class='show-hide'>^</button>
             <div class="tablero" id="tablero{{$team->id}}">
                 <section class="primeraFila">
@@ -96,6 +94,12 @@ use Illuminate\Support\Str;
         </div>
         @endforeach
     </section>
+
+    <!--Linea temporal de separación-->
+    <span>------------------------------------------------------------------------------------------</span>
+    <!--Boton crear equipo-->
+    <button><a href="/createTeam"> Crear equipo</a></button>
+
     <!--Bucle que muestra los equipos que has creado en tu perfil-->
     @foreach($teams as $team)
     <div>
@@ -156,8 +160,7 @@ use Illuminate\Support\Str;
 
     @endforeach
 
-    <!--Boton crear equipo-->
-    <button><a href="/createTeam"> Crear equipo</a></button>
+    
     <!--Propagación de id usuario y si es admin-->
     <p>Id usuario:{{session('user_id')}}</p>
     <p>Admin:{{session('admin')}}</p>
