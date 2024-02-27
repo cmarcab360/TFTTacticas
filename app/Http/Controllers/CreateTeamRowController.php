@@ -53,6 +53,6 @@ class CreateTeamRowController extends Controller
         // Obtiene todas las filas del equipo con ese id
         $teamRows = Teamrow::where('team_id', $request->input('team_id'))->get();
 
-        return redirect('/createRow')->with(compact('teamRows'));
+        return redirect('/createRow')->with(compact('teamRows'))->with('success','Campeón añadido');
     }
 }
