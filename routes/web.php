@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\DeleteTeamController;
 use App\Http\Controllers\RegistrerController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CreateTeamController;
 use App\Http\Controllers\CreateTeamRowController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
@@ -21,8 +21,10 @@ use App\Http\Controllers\ProfileController;
 
 //Ruta del perfil
 Route::get('/profile', [ProfileController::class, 'profile'])->middleware('auth');
+
 //Eliminar equipo
-Route::delete('/profile', [DeleteTeamController::class, 'destroy']);
+Route::delete('/profile', [TeamController::class, 'destroy'])->middleware('auth');
+Route::patch('/profile', [TeamController::class, 'update'])->middleware('auth');
 
 Route::get('/',[SessionsController::class, 'create'])->middleware('guest')->name('login');
 Route::post('/',[SessionsController::class, 'store'])->middleware('guest')->name('login');
@@ -37,12 +39,12 @@ Route::get('logout',[SessionsController::class, 'destroy'])->middleware('auth');
 
 
 //Agregar equipo
-Route::get('/createTeam', [CreateTeamController::class, 'createTeam']);
-Route::post('/createTeam', [CreateTeamController::class, 'storeTeam']);
+Route::get('/createTeam', [CreateTeamController::class, 'createTeam'])->middleware('auth');
+Route::post('/createTeam', [CreateTeamController::class, 'storeTeam'])->middleware('auth');
 
 //Agregar fila al equipo
-Route::get('/createRow', [CreateTeamRowController::class, 'createRow']);
-Route::post('/createRow', [CreateTeamRowController::class, 'storeRow']);
+Route::get('/createRow', [CreateTeamRowController::class, 'createRow'])->middleware('auth');
+Route::post('/createRow', [CreateTeamRowController::class, 'storeRow'])->middleware('auth');
 
 
 

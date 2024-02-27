@@ -151,6 +151,14 @@ use Illuminate\Support\Str;
     </div>
     <form action="/profile" method="POST">
         @csrf
+        @method('PATCH')
+        <input type="number" name="victories" value="{{$team->victories}}">
+        <input type="number" name="num_match" value="{{$team->num_match}}">
+        <input type="hidden" name="team_id" value="{{$team->id}}">
+        <input type="submit" value="Modificar">
+    </form>
+    <form action="/profile" method="POST">
+        @csrf
         @method('DELETE')
 
         <input type="hidden" name="team_id" value="{{$team->id}}">
