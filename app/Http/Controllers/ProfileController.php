@@ -9,6 +9,8 @@ class ProfileController extends Controller
 {
     public function profile()
     {
+        //Obtener los equipos meta ordenador por porcentaje de victorias
+        $metaTeams = Team::where('meta', 1)->with('teamrow')->orderByRaw('(victories / num_match * 100) desc')->get();
         // Obtener el ID del usuario autenticado
         $userId = Auth::id();
 
@@ -16,7 +18,7 @@ class ProfileController extends Controller
         $teams = Team::where('user_id', $userId)->where('meta', 0)->get();
 
         // Pasar la variable $teams a la vista
-        return view('profile', compact('teams'));
+        return view('profile', compact('teams', 'metaTeams'));
     }
 }
 ?>
