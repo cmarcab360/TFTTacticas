@@ -51,7 +51,7 @@ use Illuminate\Support\Str;
                 <input type="submit" value="Eliminar equipo">
             </form>
             <button class='show-hide'>^</button>
-            <div class="tablero">
+            <div class="tablero" id="tablero{{$team->id}}">
                 <section class="primeraFila">
                     <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
                     <img class="casillaPrimeraFila" id="casilla2" src="" alt="">
