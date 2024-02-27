@@ -118,11 +118,11 @@
     document.addEventListener("DOMContentLoaded", function() {
         @if (session('teamRows'))
             @foreach (session('teamRows') as $row)
-                var imgSrc = "https://raw.communitydragon.org/latest/game/assets/characters/tft10_{{ preg_replace('/[^a-zA-Z0-9]/', '', strtolower(str_replace('TFT10_', '', $row->character_id))) }}/hud/tft10_{{ preg_replace('/[^a-zA-Z0-9]/', '', strtolower(str_replace('TFT10_', '', $row->character_id))) }}_square.tft_set10.png";
+                var imgSrc = "https://raw.communitydragon.org/latest/game/assets/characters/tft10_{{ preg_replace('/[^a-zA-Z0-9]/', '', strtolower(str_replace('TFT10_', '', $row->character_id))) }}/hud/tft10_{{ preg_replace('/[^a-zA-Z0-9]/', '', strtolower(str_replace('TFT10_', '', $row->character_id))) }}_square.tft_set10.png";   
                 document.getElementById('casilla{{ $row->position }}').src = imgSrc;
             @endforeach
         @endif
     });
 </script>
-    <script src="{{ asset('filtradoPersonajesCreateRow.js') }}"></script>
+    <script src="{{ asset('js/filtradoPersonajesCreateRow.js') }}"></script>
 </x-layout>

@@ -19,10 +19,11 @@ class ProfileController extends Controller
         // Obtener los equipos del usuario actual filtrando por user_id
         $teams = Team::where('user_id', $userId)->where('meta', 0)->get();
 
-        $teamRows = Teamrow::where('team_id', $request->input('team_id'))->get();
+        // Obtener las filas de los equipos del usuario actual
+        $teamRows = Teamrow::whereIn('team_id', $teams->pluck('id'))->get();
 
         // Pasar la variable $teams a la vista
-        return view('profile', compact('teams', 'metaTeams'));
+        return view('profile', compact('teams', 'metaTeams' , 'teamRows'));
     }
 }
 ?>
