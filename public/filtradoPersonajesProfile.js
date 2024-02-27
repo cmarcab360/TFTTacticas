@@ -1,3 +1,7 @@
+const url =
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/en_gb/v1/tftchampions.json";
+
+
 function mostrarDatosApi() {
     fetch(url)
         .then((data) => data.json())
@@ -44,8 +48,9 @@ function mostrarDatosApi() {
                     .toLowerCase()}_square.tft_set10.png`;
                 img.alt = `${campeon}`;
                 img.id = campeon;
-                img.style.width = "75px";
-                img.style.height = "75px";
-                div.appendChild(img);
+                img.style.width = "30px";
+                img.style.height = "30px";
             });
-        });}
+ });}
+
+ mostrarDatosApi();
