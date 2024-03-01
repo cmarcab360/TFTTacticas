@@ -41,6 +41,7 @@ use Illuminate\Support\Str;
             <div>
                 @foreach($team->teamrow as $row)
                 <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{Str::of($row->character_id)->lower()}}/hud/{{Str::of($row->character_id)->lower()}}_square.tft_set10.png" alt="Champion {{Str::of($row->character_id)->substr(6)}}" title="{{Str::of($row->character_id)->substr(6)}}">
+                {{Str::of($row->character_id)->substr(6)}}
                 @endforeach
             </div>
             <form action="/profile" method="POST">
@@ -105,6 +106,7 @@ use Illuminate\Support\Str;
             <p>Victorias: {{ $team->victories }}</p>
             @foreach($team->teamrow as $row)
                 <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{Str::of($row->character_id)->lower()}}/hud/{{Str::of($row->character_id)->lower()}}_square.tft_set10.png" alt="Champion {{Str::of($row->character_id)->substr(6)}}" title="{{Str::of($row->character_id)->substr(6)}}">
+                {{Str::of($row->character_id)->substr(6)}}
                 @endforeach
             <button class='show-hide'>^</button>
             <div class="tablero" id="tablero{{$team->id}}">
