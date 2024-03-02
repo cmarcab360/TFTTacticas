@@ -1,4 +1,5 @@
 <x-layout>
+<x-header />
     <section>
         <h3>Listado de Campeones</h3>
 
@@ -31,11 +32,8 @@
                 @enderror
             </div>
 
-            <!-- Comprueba si el rol del usuario es admin o usuario normal, si es admin aparece un nuevo campo para preguntar si el equipo es meta -->
-            <input type="hidden" name="meta" value={{ true }}>
-            @error('meta')
-                <p>{{ $message }}</p>
-            @enderror
+            <!-- Si el usuario es admin el team se asigna como meta por defecto -->
+            <input type="hidden" name="meta" value="{{auth()->user()->admin ? 1 : 0 }}">
 
             <!-- Campo oculto para almacenar user_id -->
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
