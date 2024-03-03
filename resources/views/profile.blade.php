@@ -99,7 +99,7 @@ use Illuminate\Support\Str;
     <!--Linea temporal de separación-->
     <span>------------------------------------------------------------------------------------------</span>
     <!--Boton crear equipo-->
-    <button><a href="/createTeam"> Crear equipo</a></button>
+    <a href="/createTeam"><button>Crear equipoa</button></a>
 
     <!--Bucle que muestra los equipos que has creado en tu perfil-->
 

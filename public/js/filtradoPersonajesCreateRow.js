@@ -8,6 +8,25 @@ function iniciar() {
     contenido = document.getElementById("contenido");
     positionInput = document.getElementById("position");
     
+    //Pruebas cross-browser
+    if (window.addEventListener) {
+        console.log("Funciona");
+    } else {
+        console.log("no");
+    }
+
+    if (window.Set) {
+        console.log("Funciona");
+    } else {
+        console.log("no");
+    }
+    
+    if (window.fetch) {
+        console.log("Funciona");
+    } else {
+        console.log("no");
+    }
+    
 }
 
 function mostrarDatosApi() {
