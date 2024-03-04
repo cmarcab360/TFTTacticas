@@ -1,0 +1,36 @@
+/*------------Colores de fondo----------*/
+$color-primario: #0D202B;
+/*------------Letras (Estilo, tamaño, color)----------*/
+$font-family: 'Nunito', sans-serif;
+$font-color:#6AA0A7;
+
+/*------------Body----------*/
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: $color-primario;
+    font-family: $font-family;
+    color: $font-color;
+}
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
+}
+/*------------Success-message-----------*/
+.success {
+    color:#E0E3E4;
+    background-color: #D47559;
+    padding-top: 2px;
+    padding-right: 4px;
+    position: fixed;
+    bottom: 3px;
+    right: 3px;
+    justify-content: center;
+    border-radius: 5px;
+}
+/*--------------Error-message----------*/
+.error {
+    color:red;
+}
