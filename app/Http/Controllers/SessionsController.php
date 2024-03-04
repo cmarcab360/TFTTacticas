@@ -31,6 +31,6 @@ class SessionsController extends Controller
     }
     public function destroy(){
         auth()->logout();
-        return redirect('/')->with('success','Hasta luego!');
+        return redirect('/')->with('success','See you soon!');
     }
 }
