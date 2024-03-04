@@ -7,26 +7,25 @@ function iniciar() {
     contenedor = document.getElementById("contenedor");
     contenido = document.getElementById("contenido");
     positionInput = document.getElementById("position");
-    
-    //Pruebas cross-browser
+
+    /*Pruebas cross-browser
     if (window.addEventListener) {
         console.log("Funciona");
     } else {
-        console.log("no");
+        console.log("No funciona");
     }
 
     if (window.Set) {
         console.log("Funciona");
     } else {
-        console.log("no");
+        console.log("No funciona");
     }
     
     if (window.fetch) {
         console.log("Funciona");
     } else {
-        console.log("no");
-    }
-    
+        console.log("No funciona");
+    }*/
 }
 
 function mostrarDatosApi() {
@@ -95,22 +94,41 @@ function mostrarDatosApi() {
             });
 
             // Agrega un listener para el evento 'keyup'
-            positionInput.addEventListener("keyup", function () {
-                // Obtiene el valor ingresado en el input
-                const positionValue = parseInt(positionInput.value);
+            if (window.addEventListener) {
+                positionInput.addEventListener("keyup", function () {
+                    // Obtiene el valor ingresado en el input
+                    const positionValue = parseInt(positionInput.value);
 
-                // Restablece el estilo de todas las casillas
-                resetCasillasStyle();
+                    // Restablece el estilo de todas las casillas
+                    resetCasillasStyle();
 
-                if (
-                    !isNaN(positionValue) &&
-                    positionValue >= 1 &&
-                    positionValue <= 28
-                ) {
-                    // Ilumina la casilla correspondiente
-                    iluminarCasilla(positionValue);
-                }
-            });
+                    if (
+                        !isNaN(positionValue) &&
+                        positionValue >= 1 &&
+                        positionValue <= 28
+                    ) {
+                        // Ilumina la casilla correspondiente
+                        iluminarCasilla(positionValue);
+                    }
+                });
+            } else {
+                positionInput.attachEvent("onkeyup", function () {
+                    // Obtiene el valor ingresado en el input
+                    const positionValue = parseInt(positionInput.value);
+
+                    // Restablece el estilo de todas las casillas
+                    resetCasillasStyle();
+
+                    if (
+                        !isNaN(positionValue) &&
+                        positionValue >= 1 &&
+                        positionValue <= 28
+                    ) {
+                        // Ilumina la casilla correspondiente
+                        iluminarCasilla(positionValue);
+                    }
+                });
+            }
 
             function resetCasillasStyle() {
                 const casillas = document.querySelectorAll(
