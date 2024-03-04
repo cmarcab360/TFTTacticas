@@ -27,7 +27,7 @@ class RegistrerController extends Controller
         session(['user_id' => $user->id]);
         session(['admin' => $user->admin]);
         //Mensaje flash guardado en session en caso de success
-        session()->flash('success', 'Tu cuenta ha sido creada con exito.');
+        session()->flash('success', 'Your account has been created!');
         return redirect('/profile');//Cambiar a "/profile" cuando se cree
     }
 }
