@@ -28,7 +28,7 @@ class TeamController extends Controller
         }
         $team->delete();
         
-        return redirect('/profile')->with('success','Equipo eliminado');
+        return redirect('/profile')->with('success','Team deleted');
     }
     //Función que actualiza los campos victories y num_match de un equipo
     public function update(Request $request)
@@ -53,6 +53,6 @@ class TeamController extends Controller
             'num_match' => $request->input('num_match')
         ]);
 
-        return redirect('/profile')->with('success','Equipo actualizado');
+        return redirect('/profile')->with('success','Team updated');
     }
 }

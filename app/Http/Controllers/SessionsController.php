@@ -26,11 +26,11 @@ class SessionsController extends Controller
             return redirect('/profile')->with('success','Bienvenido!');
         }
         //Fallo de autenticacion withInput()->Deja los datos en los inputs cuando hay un error withErrors->personalizo el mensaje de la variable $errors de email
-        return back()->withInput()->withErrors(['email' => 'El email o la contraseña introducida no coinciden']);
+        return back()->withInput()->withErrors(['email' => 'The username or password you entered is incorrect, please try again.']);
         //Redirect
     }
     public function destroy(){
         auth()->logout();
-        return redirect('/')->with('success','Hasta luego!');
+        return redirect('/')->with('success','See you soon!');
     }
 }

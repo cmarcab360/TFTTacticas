@@ -28,12 +28,23 @@ use Illuminate\Support\Str;
     </style>
     <!--Bucle que muestra los equipos META (en curso)-->
     <section class="teamsMeta">
-        @foreach ($metaTeams as $team)
-            <div id="teamMeta{{ $team->id }}">
-                <div>
-                    <p>{{ $team->team_name }}</p>
-                    <!--Para controlar el error de dividir por 0-->
-                    <p>{{ $team->num_match != 0 ? round(($team->victories / $team->num_match) * 100) : 0 }}%</p>
+
+        @foreach($metaTeams as $team)
+        <div id="teamMeta{{$team->id}}">
+            <div>
+                <p>{{ $team->team_name }}</p>
+                <p>{{ $team->num_match != 0 ? round($team->victories / $team->num_match * 100) : "0" }}%</p>
+            </div>
+            <div>
+                @foreach($team->teamrow as $row)
+                <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{Str::of($row->character_id)->lower()}}/hud/{{Str::of($row->character_id)->lower()}}_square.tft_set10.png" alt="Champion {{Str::of($row->character_id)->substr(6)}}" title="{{Str::of($row->character_id)->substr(6)}}">
+                {{Str::of($row->character_id)->substr(6)}}
+                @endforeach
+            </div>
+            @if(session('admin') == 1)
+                <form action="/profile" method="POST">
+                    @csrf
+                    @method('DELETE')
 
 
                 </div>
@@ -109,18 +120,21 @@ use Illuminate\Support\Str;
     <!--Bucle que muestra los equipos que has creado en tu perfil-->
 
     <section class="myTeams">
-        @foreach ($teams as $team)
+
+        @foreach($teams as $team)
             <div class="myTeam">
-                <p>Nombre del equipo: {{ $team->team_name }}</p>
-                <p>Victorias: {{ $team->victories }}</p>
-                @foreach ($team->teamrow as $row)
-                    <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{ Str::of($row->character_id)->lower() }}/hud/{{ Str::of($row->character_id)->lower() }}_square.tft_set10.png"
-                        alt="Champion {{ Str::of($row->character_id)->substr(6) }}"
-                        title="{{ Str::of($row->character_id)->substr(6) }}">
-                    {{ Str::of($row->character_id)->substr(6) }}
-                @endforeach
-                <button class='show-hide'>^</button>
-                <div class="tablero" id="tablero{{ $team->id }}">
+                <div>
+                    <p>{{ $team->team_name }}</p>
+                    <p>{{ $team->num_match != 0 ? round($team->victories / $team->num_match * 100) : "0" }}%</p>
+                </div>
+                <div>
+                    @foreach($team->teamrow as $row)
+                        <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{Str::of($row->character_id)->lower()}}/hud/{{Str::of($row->character_id)->lower()}}_square.tft_set10.png" alt="Champion {{Str::of($row->character_id)->substr(6)}}" title="{{Str::of($row->character_id)->substr(6)}}">
+                        {{Str::of($row->character_id)->substr(6)}}
+                    @endforeach
+                </div>
+                <div class="tablero" id="tablero{{$team->id}}">
+
                     <section class="primeraFila">
                         <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
                         <img class="casillaPrimeraFila" id="casilla2" src="" alt="">
@@ -162,26 +176,27 @@ use Illuminate\Support\Str;
                         <img class="casillaCuartaFila" id="casilla28" src="" alt="">
                     </section>
                 </div>
+
+                <form action="/profile" method="POST">
+                    @csrf
+                    @method('PATCH')
+                    <input type="number" name="victories" value="{{$team->victories}}">
+                    <input type="number" name="num_match" value="{{$team->num_match}}">
+                    <input type="hidden" name="team_id" value="{{$team->id}}">
+                    <input type="submit" value="Modificar">
+                </form>
+                <form action="/profile" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <input type="hidden" name="team_id" value="{{$team->id}}">
+                    <input type="submit" value="Eliminar equipo">
+                </form>
+                <button class='show-hide'>^</button>
+            </div>
+        @endforeach
     </section>
-    </div>
-    <form action="/profile" method="POST">
-        @csrf
-        @method('PATCH')
-        <input type="number" name="victories" value="{{ $team->victories }}">
-        <input type="number" name="num_match" value="{{ $team->num_match }}">
-        <input type="hidden" name="team_id" value="{{ $team->id }}">
-        <input type="submit" value="Modificar">
-    </form>
-    <form action="/profile" method="POST">
-        @csrf
-        @method('DELETE')
-
-        <input type="hidden" name="team_id" value="{{ $team->id }}">
-        <input type="submit" value="Eliminar equipo">
-    </form>
-    </div>
-    @endforeach
-
+    
 
     <!--Propagación de id usuario y si es admin-->
     <p>Id usuario:{{ session('user_id') }}</p>
@@ -244,6 +259,10 @@ use Illuminate\Support\Str;
                         @foreach ($teams as $row)
                             var tableros = document.getElementById("tablero" + {{ $row->id }});
                             console.log(tableros);
+
+
+                        var teamRows = <?php    echo json_encode($teamRows); ?>;
+                         console.log(teamRows);
 
 
                             var teamRows = <?php echo json_encode($teamRows); ?>;
