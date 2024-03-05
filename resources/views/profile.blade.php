@@ -105,7 +105,7 @@ use Illuminate\Support\Str;
 
     <section class="myTeams">
         @foreach($teams as $team)
-            <div class="myTeam">
+            <div class="myTeam" id="myTeam">
                 <div>
                     <p>{{ $team->team_name }}</p>
                     <p>{{ $team->num_match != 0 ? round($team->victories / $team->num_match * 100) : "0" }}%</p>
@@ -158,11 +158,11 @@ use Illuminate\Support\Str;
                         <img class="casillaCuartaFila" id="casilla28" src="" alt="">
                     </section>
                 </div>
-                <form action="/profile" method="POST">
+                <form action="/profile" id="createTeam" method="POST">
                     @csrf
                     @method('PATCH')
-                    <input type="number" name="victories" value="{{$team->victories}}">
-                    <input type="number" name="num_match" value="{{$team->num_match}}">
+                    <input type="number" name="victories" id="victories" value="{{$team->victories}}">
+                    <input type="number" name="num_match" id="num_match" value="{{$team->num_match}}">
                     <input type="hidden" name="team_id" value="{{$team->id}}">
                     <input type="submit" value="Modificar">
                 </form>
@@ -265,5 +265,8 @@ use Illuminate\Support\Str;
 
     <script src="{{ asset('js/show-hide.js') }}"></script>
     <script src="{{ asset('js/Meta.js') }}"></script>
+    <script type="module" src="js/createTeam.js"></script>
+    <script type="module" src="js/validation.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
 
 </x-layout>

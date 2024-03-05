@@ -12,8 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!Validation.validateVictories(victories, num_match)) {
 
             //Crear un mensaje de error debajo del campo de contraseña
+            if ($('#myTeam').length) {
+            $('#myTeam').nextAll('.error').remove();
+            $('#myTeam').after('<p class="error">TThe number of victories cannot be equal to 0 or exceed the total number of matches played.</p>');
+            } else {
             $('#num_match').nextAll('.error').remove();
-            $('#num_match').after('<p class="error">El número de victorias no puede ser menor a 0 ni mayor que el número de partidas jugadas</p>');
+            $('#num_match').after('<p class="error">The number of victories cannot be equal to 0 or exceed the total number of matches played.</p>');
+            }
         }
 
         else {
