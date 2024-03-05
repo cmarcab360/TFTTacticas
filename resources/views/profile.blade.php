@@ -98,8 +98,7 @@ use Illuminate\Support\Str;
 
     <!--Linea temporal de separación-->
     <span>------------------------------------------------------------------------------------------</span>
-    <!--Boton crear equipo-->
-    <button><a href="/createTeam"> Crear equipo</a></button>
+    
 
     <!--Bucle que muestra los equipos que has creado en tu perfil-->
 

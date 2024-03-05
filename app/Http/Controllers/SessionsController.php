@@ -23,7 +23,7 @@ class SessionsController extends Controller
             session(['user_id' => Auth::user()->id]);
             session(['admin' => Auth::user()->admin]);
 
-            return redirect('/profile')->with('success','Bienvenido!');
+            return redirect('/profile')->with('success','Welcome!');
         }
         //Fallo de autenticacion withInput()->Deja los datos en los inputs cuando hay un error withErrors->personalizo el mensaje de la variable $errors de email
         return back()->withInput()->withErrors(['email' => 'The username or password you entered is incorrect, please try again.']);
