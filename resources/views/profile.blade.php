@@ -173,7 +173,7 @@ use Illuminate\Support\Str;
                     <input type="hidden" name="team_id" value="{{$team->id}}">
                     <input type="submit" value="Eliminar equipo">
                 </form>
-                <button class='show-hide'>^</button>
+                <button class='show-hide' data-target="tablero{{$team->id}}">^</button>
             </div>
         @endforeach
     </section>
