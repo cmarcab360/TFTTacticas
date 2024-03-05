@@ -1,17 +1,19 @@
 /*------------Colores de fondo----------*/
-$color-primario: #0D202B;
+$color-primario: #0d202b;
 /*------------Letras (Estilo, tamaño, color)----------*/
-$font-family: 'Nunito', sans-serif;
-$font-color:#6AA0A7;
+$font-family: "Nunito", sans-serif;
+$font-color: #6aa0a7;
 
 /*------------Body----------*/
-body{
+body {
     display: flex;
     flex-direction: column;
     height: 100vh;
     background-color: $color-primario;
     font-family: $font-family;
     color: $font-color;
+    margin: 0;
+    padding: 0;
 }
 a:link,
 a:visited,
@@ -20,8 +22,8 @@ a:active {
 }
 /*------------Success-message-----------*/
 .success {
-    color:#E0E3E4;
-    background-color: #D47559;
+    color: #e0e3e4;
+    background-color: #d47559;
     padding-top: 2px;
     padding-right: 4px;
     position: fixed;
@@ -32,5 +34,5 @@ a:active {
 }
 /*--------------Error-message----------*/
 .error {
-    color:red;
+    color: red;
 }

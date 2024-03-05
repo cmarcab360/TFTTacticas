@@ -1,0 +1,48 @@
+$header-color-background: #102531;
+$header-color-font: #6aa0a7;
+$header-color-border: #223941;
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $header-color-background;
+    border: solid $header-color-border 1px;
+
+    &__welcome {
+        display: flex;
+        color: #e0e3e4;
+        margin-left: 1rem;
+    }
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1px 1px 1px 1px;
+        width: 15%;
+        height: auto;
+    }
+
+    &__options{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &__create{
+            border-radius: 5px;
+            border: 0px transparent;
+            width: 8vw;
+            //padding: 8px 10px;
+            //margin: 3px 8px 16px 8px;
+            //background-color: $header-color-background;
+            //color: $header-color-font;
+            font-size: 1vw;
+            & a{
+                color: red;
+            }
+            &:hover{
+                background-color:red;
+            }
+        }
+    }
+}
