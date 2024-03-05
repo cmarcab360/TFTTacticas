@@ -52,8 +52,8 @@ $font-color-buttons:white;
                 background-color: $color-fondo-inputs;
                 border: 0px transparent;
                 border-radius: 5px;
-                height: 50%;
-                width: 100%;
+                height: 20%;
+                width: 80%;
                 padding: 8px 10px;
                 margin: 3px 8px 16px 8px;
                 font-size: xx-large;
@@ -64,16 +64,16 @@ $font-color-buttons:white;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 200%;    
+                font-size: 150%;    
             }
         }
 
         &__buttons {
             display: flex;
-            width: 50%;
+            width: 100%;
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-around;
             
             &__button{
                 display: flex;
@@ -81,12 +81,12 @@ $font-color-buttons:white;
                 align-items: center;
                 border-radius: 5px;
                 border: 0px transparent;
-                width: 50%;
+                width: 80%;
                 padding: 8px 10px;
                 margin: 3px 8px 16px 8px;
                 background-color: $color-fondo-buttons;
                 color: $font-color-buttons;
-                font-size: 200%;
+                font-size: 150%;
                 
                 &__a{
                     color: $font-color-buttons;
@@ -107,31 +107,24 @@ $font-color-buttons:white;
 }
 
 /*---------------------Media------------------------*/
-@media only screen and (min-width: 600px) {
-    
+@media (min-width: 600px) {
     .wrapper {
-        &__title {
-            //font-size: 2vw;
-        }
         &__form {
-            //font-size: 1vw;
-            width: 50%;
+            width: 20%;
             &__input {
+                width: 90%;
                 &__input {
-                    /*height: 3vh;
-                    width: 30vw;
-                    padding: 8px 10px;
-                    margin: 3px 8px 16px 8px;
-                    font-size: 1vw;*/
+                    font-size: medium;
+                }
+                &__label {
+                    font-size: medium;
                 }
             }
             &__buttons {
-               // width: 30vw;
+               
                 &__button{
-                   /* width: 10vw;
-                    padding: 8px 10px;
-                    margin: 3px 8px 16px 8px;
-                    font-size: 1.5vw;*/
+                    width: 40%;
+                    font-size: medium;
                 }
             }
         }

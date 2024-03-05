@@ -35,8 +35,8 @@
         background-color: rgba(222, 239, 248, 0.877);
         border: 0px transparent;
         border-radius: 5px;
-        height: 50%;
-        width: 100%;
+        height: 20%;
+        width: 80%;
         padding: 8px 10px;
         margin: 3px 8px 16px 8px;
         font-size: xx-large; }
@@ -45,25 +45,25 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 200%; }
+        font-size: 150%; }
     .wrapper__form__buttons {
       display: flex;
-      width: 50%;
+      width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: space-between; }
+      justify-content: space-around; }
       .wrapper__form__buttons__button {
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 5px;
         border: 0px transparent;
-        width: 50%;
+        width: 80%;
         padding: 8px 10px;
         margin: 3px 8px 16px 8px;
         background-color: #d47559;
         color: white;
-        font-size: 200%; }
+        font-size: 150%; }
         .wrapper__form__buttons__button__a {
           color: white; }
         .wrapper__form__buttons__button:hover {
@@ -74,17 +74,15 @@
           background-color: #127ab6; }
 
 /*---------------------Media------------------------*/
-@media only screen and (min-width: 600px) {
+@media (min-width: 600px) {
   .wrapper__form {
-    width: 50%; }
-    .wrapper__form__input__input {
-      /*height: 3vh;
-                    width: 30vw;
-                    padding: 8px 10px;
-                    margin: 3px 8px 16px 8px;
-                    font-size: 1vw;*/ }
+    width: 20%; }
+    .wrapper__form__input {
+      width: 90%; }
+      .wrapper__form__input__input {
+        font-size: medium; }
+      .wrapper__form__input__label {
+        font-size: medium; }
     .wrapper__form__buttons__button {
-      /* width: 10vw;
-                    padding: 8px 10px;
-                    margin: 3px 8px 16px 8px;
-                    font-size: 1.5vw;*/ } }
+      width: 40%;
+      font-size: medium; } }
