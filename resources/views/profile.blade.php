@@ -49,7 +49,7 @@ use Illuminate\Support\Str;
                     <input type="submit" value="Eliminar equipo">
                 </form>
             @endif
-            <button class='show-hide'>^</button>
+            <button class='show-hide' data-target="tablero{{$team->id}}" >^</button>
             <div class="tablero" id="tablero{{$team->id}}">
                 <section class="primeraFila">
                     <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
@@ -112,7 +112,6 @@ use Illuminate\Support\Str;
                 <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{Str::of($row->character_id)->lower()}}/hud/{{Str::of($row->character_id)->lower()}}_square.tft_set10.png" alt="Champion {{Str::of($row->character_id)->substr(6)}}" title="{{Str::of($row->character_id)->substr(6)}}">
                 {{Str::of($row->character_id)->substr(6)}}
                 @endforeach
-            <button class='show-hide'>^</button>
             <div class="tablero" id="tablero{{$team->id}}">
                 <section class="primeraFila">
                     <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
@@ -154,9 +153,7 @@ use Illuminate\Support\Str;
                     <img class="casillaCuartaFila" id="casilla27" src="" alt="">
                     <img class="casillaCuartaFila" id="casilla28" src="" alt="">
                 </section>
-            </div>
-    </section>
-    </div>
+            </div> 
     <form action="/profile" method="POST">
         @csrf
         @method('PATCH')
@@ -172,8 +169,8 @@ use Illuminate\Support\Str;
         <input type="hidden" name="team_id" value="{{$team->id}}">
         <input type="submit" value="Eliminar equipo">
     </form>
-    </div>
-
+    <button class="show-hide" data-target="tablero{{$team->id}}">^</button>
+    </section>
     @endforeach
 
     

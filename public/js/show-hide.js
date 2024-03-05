@@ -1,18 +1,24 @@
-//Todos los botones con la clase show-hide
-let button = document.getElementsByClassName("show-hide");
+// Seleccionar todos los elementos con la clase show-hide
+const buttons = document.querySelectorAll(".show-hide");
 
-// To array
-button = Array.from(button);
+// Convertir la NodeList a un array
+const buttonArray = Array.from(buttons);
 
-//Por cada clase show-hide, se agrega un evento click que muestra o esconde el siguiente elemento hermano(tablero)
-button.forEach((el) => el.addEventListener("click", showHide));
+// Para cada botón con la clase show-hide, agregar un evento click que muestra u oculta el elemento asociado
+buttonArray.forEach((button) => button.addEventListener("click", toggleTablero));
 
-//Funcion show-hide para mostrar y ocultar tablero
-function showHide(event) {
-    let x = event.target.nextElementSibling;
-    if (x.style.display === "block") {
-        x.style.display = "none";
+// Función para mostrar u ocultar el elemento asociado
+function toggleTablero(event) {
+    // Obtener el valor del atributo data-target
+    const targetId = event.target.getAttribute("data-target");
+
+    // Obtener el elemento asociado con el ID obtenido
+    const targetElement = document.getElementById(targetId);
+
+    // Cambiar la propiedad de estilo display del elemento asociado
+    if (targetElement.style.display === "block") {
+        targetElement.style.display = "none";
     } else {
-        x.style.display = "block";
+        targetElement.style.display = "block";
     }
 }

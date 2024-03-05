@@ -4,7 +4,7 @@
 @guest
 <section>
         <h1>Log In</h1>
-        <form action="/" method="POST">
+        <form action="/" method="POST" id="register-form">
             <!--Crea un campo hidden con un token para este usuario-->
             @csrf 
             <div>
@@ -27,7 +27,8 @@
             </div>
         </form>
     </section>
-    
 @endguest
-
+<script type="module" src="js/login.js"></script>
+<script type="module" src="js/validation.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
 </x-layout>

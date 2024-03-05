@@ -1,7 +1,7 @@
 <x-layout>
     <section>
         <h1>Register</h1>
-        <form action="/register" method="POST">
+        <form action="/register" method="POST" id="register-form">
             <!--Crea un campo hidden con un token para este usuario-->
             @csrf 
             <div>
@@ -37,4 +37,7 @@
             </div>
         </form>
     </section>
+    <script type="module" src="js/register.js"></script>
+    <script type="module" src="js/validation.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
 </x-layout>

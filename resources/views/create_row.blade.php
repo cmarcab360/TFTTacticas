@@ -8,7 +8,7 @@
                 <div id="iconosFichas">
 
             </div>
-        <form action="/createRow" method="post">
+        <form action="/createRow" method="post" id="addChamp">
             @csrf
 
 
