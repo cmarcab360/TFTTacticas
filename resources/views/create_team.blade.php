@@ -3,7 +3,6 @@
     <section class="contenedor">
         <h1 class="contenedor__titulo">Create your team</h1>
 
-
         <article class="contenedor__article">
             <img src="img/pengu.png" alt="imagen pingui" class="contenedor__article__imagen">
 
@@ -26,7 +25,7 @@
                 </div>
 
                 <div class="contenedor__article__formulario__input">
-                    <label for="num_match" class="contenedor__article__formulario__input__label">number of matches played:</label>
+                    <label for="num_match" class="contenedor__article__formulario__input__label">Number of matches:</label>
                     <input type="number" name="num_match" id="num_match" required class="contenedor__article__formulario__input__caja">
                     @error('num_match')
                         <p>{{ $message }}</p>

@@ -13,115 +13,115 @@ $font-color-title: #d47559;
 $font-color-form: #e0e3e4;
 $font-color-buttons: white;
 
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    .contenedor {
+    &__article {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    
-        &__article {
+        gap: 15px;
+        height: 40vh;
+
+        &__titulo {
+            flex: 2;
+        }
+        &__imagen {
+            flex: 1;
+            height: 65%;
+            width: auto;
+        }
+        &__formulario {
+            flex: 1;
             display: flex;
-            gap: 15px;
-            height: 40vh;
-    
-            &__titulo {
-                flex: 2;
-            }
-            &__imagen {
-                flex: 1;
-                height: 80%;
-                width: auto;
-            }
-            &__formulario {
-                flex: 1;
+            flex-direction: column;
+            padding: 5px 2px;
+            border-radius: 7px;
+            background-color: $color-fondo-form;
+            font-size: 3vw;
+            height: 28vh;
+            color: $font-color-form;
+            justify-content: center;
+            &__input {
                 display: flex;
                 flex-direction: column;
-                padding: 30px 20px;
-                border-radius: 7px;
-                background-color: $color-fondo-form;
-                font-size: 3vw;
-                height: 28vh;
-                color: $font-color-form;
                 justify-content: center;
-                &__input {
+                align-items: center;
+                &__caja {
+                    background-color: $color-fondo-inputs;
+                    border: 0px transparent;
+                    border-radius: 5px;
+                    height: 3vh;
+                    width: 45vw;
+                    padding: 0px;
+                    margin: 3px 7px 9px 7px;
+                    font-size: small;
+                }
+
+                &__label {
                     display: flex;
-                    flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    &__caja {
-                        background-color: $color-fondo-inputs;
-                        border: 0px transparent;
-                        border-radius: 5px;
-                        height: 3vh;
-                        width: 40vw;
-                        padding: 8px 10px;
-                        margin: 3px 8px 16px 8px;
-                        font-size: x-large;
-                    }
-    
-                    &__label {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
                 }
-    
-                &__button {
-                    border-radius: 5px;
-                    border: 0px transparent;
-                    width: 20vw;
-                    padding: 8px 10px;
-                    margin: 3px 8px 16px 8px;
-                    background-color: $color-fondo-buttons;
+            }
+
+            &__button {
+                border-radius: 5px;
+                border: 0px transparent;
+                width: 20vw;
+                padding: 5px;
+                margin: 3px 8px 16px 8px;
+                background-color: $color-fondo-buttons;
+                color: $font-color-buttons;
+                font-size: 3vw;
+                &__a {
                     color: $font-color-buttons;
-                    font-size: 3vw;
-                    &__a {
-                        color: $font-color-buttons;
-                    }
-    
-                    &:hover {
-                        background-color: $color-fondo-buttons-hover;
-                    }
                 }
-                &__button--blue {
-                    background-color: $color-fondo-buttons-register;
-                    &:hover {
-                        background-color: $color-fondo-buttons-register-hover;
-                    }
+
+                &:hover {
+                    background-color: $color-fondo-buttons-hover;
+                }
+            }
+            &__button--blue {
+                background-color: $color-fondo-buttons-register;
+                &:hover {
+                    background-color: $color-fondo-buttons-register-hover;
                 }
             }
         }
     }
-    
-
+}
 
 @media (min-width: 600px) {
     .contenedor {
         &__article {
-            height: 85vh;
+            height: 55vh;
 
             &__imagen {
                 flex: 1;
-                height: 70%;
+                height: 100%;
                 width: auto;
             }
             &__formulario {
-                height: 60vh;
+                height: 50vh;
                 font-size: 2vw;
+                padding: 20px 20px;
                 &__input {
                     &__caja {
                         height: 1vh;
                         width: 30vw;
+                        font-size: medium;
+                        padding: 15px 10px;
                         font-size: medium;
                     }
                 }
 
                 &__button {
                     border-radius: 5px;
-
+                    padding: 8px 10px;
+                    margin: 3px 8px 16px 8px;
                     width: 15vw;
-
                     font-size: 2vw;
                 }
             }

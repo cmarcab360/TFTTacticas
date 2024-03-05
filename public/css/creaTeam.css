@@ -13,13 +13,13 @@
       flex: 2; }
     .contenedor__article__imagen {
       flex: 1;
-      height: 80%;
+      height: 65%;
       width: auto; }
     .contenedor__article__formulario {
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 30px 20px;
+      padding: 5px 2px;
       border-radius: 7px;
       background-color: rgba(158, 189, 199, 0.288);
       font-size: 3vw;
@@ -36,10 +36,10 @@
           border: 0px transparent;
           border-radius: 5px;
           height: 3vh;
-          width: 40vw;
-          padding: 8px 10px;
-          margin: 3px 8px 16px 8px;
-          font-size: x-large; }
+          width: 45vw;
+          padding: 0px;
+          margin: 3px 7px 9px 7px;
+          font-size: small; }
         .contenedor__article__formulario__input__label {
           display: flex;
           justify-content: center;
@@ -48,7 +48,7 @@
         border-radius: 5px;
         border: 0px transparent;
         width: 20vw;
-        padding: 8px 10px;
+        padding: 5px;
         margin: 3px 8px 16px 8px;
         background-color: #d47559;
         color: white;
@@ -64,19 +64,24 @@
 
 @media (min-width: 600px) {
   .contenedor__article {
-    height: 85vh; }
+    height: 55vh; }
     .contenedor__article__imagen {
       flex: 1;
-      height: 70%;
+      height: 100%;
       width: auto; }
     .contenedor__article__formulario {
-      height: 60vh;
-      font-size: 2vw; }
+      height: 50vh;
+      font-size: 2vw;
+      padding: 20px 20px; }
       .contenedor__article__formulario__input__caja {
         height: 1vh;
         width: 30vw;
+        font-size: medium;
+        padding: 15px 10px;
         font-size: medium; }
       .contenedor__article__formulario__button {
         border-radius: 5px;
+        padding: 8px 10px;
+        margin: 3px 8px 16px 8px;
         width: 15vw;
         font-size: 2vw; } }
