@@ -22,9 +22,6 @@ a:active {
 }
 /*------------Success-message-----------*/
 .success {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #e0e3e4;
     background-color: #d47559;
     padding-top: 2px;
@@ -34,6 +31,10 @@ a:active {
     right: 3px;
     justify-content: center;
     border-radius: 5px;
+
+    & p{
+        margin-left: 3.5px;
+    }
 }
 /*--------------Error-message----------*/
 .error {
