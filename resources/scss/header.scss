@@ -29,14 +29,14 @@ $header-color-border: #223941;
         justify-content: center;
         align-items: center;
         &__create{
-            border-radius: 5px;
+            border-radius: 5%;
             border: 0px transparent;
-            width: 8vw;
+            width: 60%;
             //padding: 8px 10px;
             //margin: 3px 8px 16px 8px;
             //background-color: $header-color-background;
             //color: $header-color-font;
-            font-size: 1vw;
+            font-size: 85%;
             & a{
                 color: red;
             }

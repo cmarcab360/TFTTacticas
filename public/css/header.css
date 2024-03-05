@@ -21,10 +21,10 @@
     justify-content: center;
     align-items: center; }
     .header__options__create {
-      border-radius: 5px;
+      border-radius: 5%;
       border: 0px transparent;
-      width: 8vw;
-      font-size: 1vw; }
+      width: 60%;
+      font-size: 85%; }
       .header__options__create a {
         color: red; }
       .header__options__create:hover {

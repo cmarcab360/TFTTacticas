@@ -24,8 +24,8 @@ $font-color-buttons:white;
         display: flex;
         justify-content: center;
         align-items: center;
-        //width: 25rem;
-        //font-size: 5rem;
+        width: 100%;
+        font-size: 200%;
         color: $font-color-title;
     }
 
@@ -35,13 +35,13 @@ $font-color-buttons:white;
         justify-content: center;
         align-items: center;
         background-color: $color-fondo-form;
-        /*padding: 30px 20px;
-        width: 50rem;
+        padding: 30px 20px;
+        width: 75%;
         border-radius: 7px;
         
-        font-size: 2.5rem;
-        color: $font-color-form;*/
-/*
+        font-size: 100%;
+        color: $font-color-form;
+
         &__input {
             display: flex;
             flex-direction: column;
@@ -52,8 +52,8 @@ $font-color-buttons:white;
                 background-color: $color-fondo-inputs;
                 border: 0px transparent;
                 border-radius: 5px;
-                height: 3rem;
-                width: 40rem;
+                height: 50%;
+                width: 100%;
                 padding: 8px 10px;
                 margin: 3px 8px 16px 8px;
                 font-size: xx-large;
@@ -64,15 +64,16 @@ $font-color-buttons:white;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                font-size: 200%;    
             }
         }
 
         &__buttons {
             display: flex;
-            width: 40rem;
+            width: 50%;
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
             
             &__button{
                 display: flex;
@@ -80,12 +81,12 @@ $font-color-buttons:white;
                 align-items: center;
                 border-radius: 5px;
                 border: 0px transparent;
-                width: 15rem;
+                width: 50%;
                 padding: 8px 10px;
                 margin: 3px 8px 16px 8px;
                 background-color: $color-fondo-buttons;
                 color: $font-color-buttons;
-                font-size: 2.5rem;
+                font-size: 200%;
                 
                 &__a{
                     color: $font-color-buttons;
@@ -101,37 +102,38 @@ $font-color-buttons:white;
                     background-color:$color-fondo-buttons-register-hover;
                 }
             }
-        }*/
+        }
     }
 }
 
-/*---------------------Media------------------------
-@media (max-width: 600px) {
+/*---------------------Media------------------------*/
+@media only screen and (min-width: 600px) {
+    
     .wrapper {
         &__title {
-            font-size: 3vw;
+            //font-size: 2vw;
         }
         &__form {
-            font-size: 1vw;
-            width: 40vw;
+            //font-size: 1vw;
+            width: 50%;
             &__input {
                 &__input {
-                    height: 3vh;
+                    /*height: 3vh;
                     width: 30vw;
                     padding: 8px 10px;
                     margin: 3px 8px 16px 8px;
-                    font-size: 1vw;
+                    font-size: 1vw;*/
                 }
             }
             &__buttons {
-                width: 30vw;
+               // width: 30vw;
                 &__button{
-                    width: 10vw;
+                   /* width: 10vw;
                     padding: 8px 10px;
                     margin: 3px 8px 16px 8px;
-                    font-size: 1.5vw;
+                    font-size: 1.5vw;*/
                 }
             }
         }
     }
-}*/
+}
