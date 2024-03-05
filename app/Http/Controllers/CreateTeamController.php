@@ -10,8 +10,6 @@ class CreateTeamController extends Controller
 {
     public function createTeam()
     {
-        // Obtener todos los campeones desde la API 
-
         return view('create_team');
     }
 
@@ -37,7 +35,6 @@ class CreateTeamController extends Controller
 
         ]);
 
-        //$team = Team::create($attributes);
         //Propagación id equipo
         session(['team_id' => $team->id]);
 
