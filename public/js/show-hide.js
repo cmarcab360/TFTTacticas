@@ -4,14 +4,8 @@ const buttons = document.querySelectorAll(".show-hide");
 // Convertir la NodeList a un array
 const buttonArray = Array.from(buttons);
 
-
-//Por cada clase show-hide, se agrega un evento click que muestra o esconde el siguiente elemento hermano(tablero)
-if (window.addEventListener) {
-    button.forEach((el) => el.addEventListener("click", showHide));
-} else {
-    button.forEach((el) => el.attachEvent("onclick", showHide));
-}
-
+// Para cada botón con la clase show-hide, agregar un evento click que muestra u oculta el elemento asociado
+buttonArray.forEach((button) => button.addEventListener("click", toggleTablero));
 
 // Función para mostrar u ocultar el elemento asociado
 function toggleTablero(event) {
