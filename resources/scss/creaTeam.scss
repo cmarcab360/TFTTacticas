@@ -23,6 +23,7 @@ $font-color-buttons: white;
         display: flex;
         gap: 15px;
         height: 40vh;
+        align-items: center;
 
         &__titulo {
             flex: 2;
@@ -36,11 +37,11 @@ $font-color-buttons: white;
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 5px 2px;
+
             border-radius: 7px;
             background-color: $color-fondo-form;
             font-size: 3vw;
-            height: 28vh;
+            height: 35vh;
             color: $font-color-form;
             justify-content: center;
             &__input {
@@ -55,7 +56,7 @@ $font-color-buttons: white;
                     height: 3vh;
                     width: 45vw;
                     padding: 0px;
-                    margin: 3px 7px 9px 7px;
+                    margin: 5px 8px 9px 8px;
                     font-size: small;
                 }
 
@@ -96,7 +97,7 @@ $font-color-buttons: white;
 @media (min-width: 600px) {
     .contenedor {
         &__article {
-            height: 55vh;
+            height: 50vh;
 
             &__imagen {
                 flex: 1;
@@ -104,14 +105,13 @@ $font-color-buttons: white;
                 width: auto;
             }
             &__formulario {
-                height: 50vh;
-                font-size: 2vw;
+                height: 40vh;
+                font-size: medium;
                 padding: 20px 20px;
                 &__input {
                     &__caja {
                         height: 1vh;
                         width: 30vw;
-                        font-size: medium;
                         padding: 15px 10px;
                         font-size: medium;
                     }
@@ -122,8 +122,20 @@ $font-color-buttons: white;
                     padding: 8px 10px;
                     margin: 3px 8px 16px 8px;
                     width: 15vw;
-                    font-size: 2vw;
+                    font-size: medium;
                 }
+            }
+        }
+    }
+}
+@media (min-width: 1000px) {
+    .contenedor {
+        &__article {
+            height: 60vh;
+
+            &__formulario {
+                height: 55vh;
+
             }
         }
     }
