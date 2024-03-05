@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             $('#password').nextAll('.error').remove();
             //Crear un mensaje de error debajo del campo de contraseña
-            $('#password').after('<p class="error">La contraseña debe tener al menos 8 caracteres, con al menos un carácter especial y una mayúscula</p>');
+            $('#password').after('<p class="error">The password must have at least 8 characters, including at least one special character and one uppercase letter.</p>');
         }
             
             else {

@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             //Crear un mensaje de error debajo del campo de contraseña
             $('#num_match').nextAll('.error').remove();
-            $('#num_match').after('<p class="error">El número de victorias no puede ser menor a 0 ni mayor que el número de partidas jugadas</p>');
+            $('#num_match').after('<p class="error">The number of victories cannot be equal to 0 or exceed the total number of matches played.</p>');
         }
 
         else {
