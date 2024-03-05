@@ -6,7 +6,7 @@
 
         <h2>Crear Equipo TFT</h2>
 
-        <form action="/createTeam" method="post">
+        <form action="/createTeam" method="post" id="createTeam">
             @csrf
             <div>
                 <label for="team_name">Nombre del Equipo:</label>
@@ -43,8 +43,8 @@
 
             <button type="submit">Crear Equipo</button>
         </form>
-
-
     </section>
-
+    <script type="module" src="js/createTeam.js"></script>
+    <script type="module" src="js/validation.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
 </x-layout>

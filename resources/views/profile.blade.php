@@ -49,7 +49,7 @@ use Illuminate\Support\Str;
                     <input type="submit" value="Eliminar equipo">
                 </form>
             @endif
-            <button class='show-hide'>^</button>
+            <button class='show-hide' data-target="tablero{{$team->id}}" >^</button>
             <div class="tablero" id="tablero{{$team->id}}">
                 <section class="primeraFila">
                     <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
@@ -177,6 +177,8 @@ use Illuminate\Support\Str;
             </div>
         @endforeach
     </section>
+
+
     
     <!--Propagación de id usuario y si es admin-->
     <p>Id usuario:{{session('user_id')}}</p>

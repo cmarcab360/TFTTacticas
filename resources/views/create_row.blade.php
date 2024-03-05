@@ -9,7 +9,8 @@
 
 
 
-        <form action="/createRow" method="post">
+            </div>
+        <form action="/createRow" method="post" id="addChamp">
             @csrf
             <div>
                 <label for="character_id">Campeon:</label>
