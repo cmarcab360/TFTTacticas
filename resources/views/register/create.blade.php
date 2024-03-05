@@ -1,39 +1,39 @@
 <x-layout>
-    <section>
-        <h1>Register</h1>
-        <form action="/register" method="POST" id="register-form">
+    <section class= "wrapper">
+        <h1 class="wrapper__title">Register</h1>
+        <form action="/register" method="POST" class="wrapper__form" id="register-form">
             <!--Crea un campo hidden con un token para este usuario-->
             @csrf 
-            <div>
-                <label for="name">NAME</label>
-                <input type="text" name="name" id="name" value="{{old('name')/*Cuando se haya cometido un error en otro campo no tenga que volver a llenar este campo*/}}" required>
+            <div class="wrapper__form__input">
+                <label for="name" class="wrapper__form__input__label">NAME</label>
+                <input type="text" name="name" id="name" value="{{old('name')/*Cuando se haya cometido un error en otro campo no tenga que volver a llenar este campo*/}}" required class="wrapper__form__input__input">
                 @error('name')
-                    <p>{{$message}}</p>
+                    <p class="error">{{$message}}</p>
                 @enderror
             </div>
-            <div>
-                <label for="username">USERNAME</label>
-                <input type="text" name="username" id="username" value="{{old('username')}}" required>
+            <div class="wrapper__form__input">
+                <label for="username" class="wrapper__form__input__label">USERNAME</label>
+                <input type="text" name="username" id="username" value="{{old('username')}}" required class="wrapper__form__input__input">
                 @error('username')
-                    <p>{{$message}}</p>
+                    <p class="error">{{$message}}</p>
                 @enderror
             </div>
-            <div>
-                <label for="email">EMAIL</label>
-                <input type="email" name="email" id="email" value="{{old('email')}}" required>
+            <div class="wrapper__form__input">
+                <label for="email" class="wrapper__form__input__label">EMAIL</label>
+                <input type="email" name="email" id="email" value="{{old('email')}}" required class="wrapper__form__input__input">
                 @error('email')
-                    <p>{{$message}}</p>
+                    <p class="error">{{$message}}</p>
                 @enderror
             </div>
-            <div>
-                <label for="password">PASSWORD</label>
-                <input type="password" name="password" id="password" required>
+            <div class="wrapper__form__input">
+                <label for="password" class="wrapper__form__input__label">PASSWORD</label>
+                <input type="password" name="password" id="password" required class="wrapper__form__input__input">
                 @error('password')
-                    <p>{{$message}}</p>
+                    <p class="error">{{$message}}</p>
                 @enderror
             </div>
-            <div>
-                <button type="submit">Submit</button>
+            <div class="wrapper__form__buttons">
+                <button type="submit" class="wrapper__form__buttons__button">Submit</button>
             </div>
         </form>
     </section>

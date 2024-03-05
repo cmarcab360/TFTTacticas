@@ -1,0 +1,133 @@
+/*------------Colores de fondo----------*/
+$color-primario: #0d202b;
+$color-fondo-form: rgba(158, 189, 199, 0.288);
+$color-fondo-inputs: rgba(222, 239, 248, 0.877);
+$color-fondo-buttons: #d47559;
+$color-fondo-buttons-hover: #df623c;
+$color-fondo-buttons-register:#2F94D0;
+$color-fondo-buttons-register-hover:#127ab6;
+/*------------Letras (Estilo, color)----------*/
+$font-family: "Nunito", sans-serif;
+$font-color: #6aa0a7;
+$font-color-title: #d47559;
+$font-color-form: #e0e3e4;
+$font-color-buttons:white;
+/*------------Section----------*/
+.wrapper {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80vw;
+        font-size: 8vw;
+        color: $font-color-title;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 20px;
+        width: 80vw;
+        border-radius: 7px;
+        background-color: $color-fondo-form;
+        font-size: 4vw;
+        color: $font-color-form;
+
+        &__input {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            &__input {
+                background-color: $color-fondo-inputs;
+                border: 0px transparent;
+                border-radius: 5px;
+                height: 3vh;
+                width: 60vw;
+                padding: 8px 10px;
+                margin: 3px 8px 16px 8px;
+                font-size: xx-large;
+            }
+
+            &__label {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        &__buttons {
+            width: 60vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            
+            &__button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+                border: 0px transparent;
+                width: 20vw;
+                padding: 8px 10px;
+                margin: 3px 8px 16px 8px;
+                background-color: $color-fondo-buttons;
+                color: $font-color-buttons;
+                font-size: 3vw;
+                
+                &__a{
+                    color: $font-color-buttons;
+                }
+
+                &:hover{
+                    background-color:$color-fondo-buttons-hover;
+                }
+            }
+            &__button--blue{
+                background-color:$color-fondo-buttons-register;
+                &:hover{
+                    background-color:$color-fondo-buttons-register-hover;
+                }
+            }
+        }
+    }
+}
+
+/*---------------------Media------------------------*/
+@media (min-width: 600px) {
+    .wrapper {
+        &__title {
+            font-size: 3vw;
+        }
+        &__form {
+            font-size: 1vw;
+            width: 40vw;
+            &__input {
+                &__input {
+                    height: 3vh;
+                    width: 30vw;
+                    padding: 8px 10px;
+                    margin: 3px 8px 16px 8px;
+                    font-size: 1vw;
+                }
+            }
+            &__buttons {
+                width: 30vw;
+                &__button{
+                    width: 10vw;
+                    padding: 8px 10px;
+                    margin: 3px 8px 16px 8px;
+                    font-size: 1.5vw;
+                }
+            }
+        }
+    }
+}
