@@ -2,17 +2,15 @@
     <x-header />
     <!--Propagación de id usuario y si es admin-->
     <p>Id team:{{ session('team_id') }}</p>
-    <section>
-        <h3>Creacion de equipo</h3>
+    <section class="section">
+        <h3 class="section__h3">Creacion de equipo</h3>
 
-        <div id="iconosFichas"></div>
+        <div id="iconosFichas" class="section__iconos"></div>
 
-            </div>
-        <form action="/createRow" method="post" id="addChamp">
+        <form action="/createRow" method="post" id="addChamp" class="section_form">
             @csrf
             <div>
-                <label for="character_id">Campeon:</label>
-                <input list="campeonesList" name="character_id" id="character_id" />
+                <input type="hidden" list="campeonesList" name="character_id" id="character_id"/>
                 <datalist id="campeonesList"></datalist>
 
                 @error('character_id')
@@ -20,8 +18,7 @@
                 @enderror
             </div>
 
-            <div>
-
+            <div class="section__form__position">
                 <label for="position">position:</label>
                 <input type="number" name="position" id="position" required>
                 @error('position')
@@ -32,12 +29,10 @@
             <!-- Campo oculto para almacenar id_team-->
             <input type="hidden" name="team_id" value="{{ session('team_id') }}">
 
-            <button type="submit" id="addChamp">Añadir campeón</button>
-
-
+            <button type="submit" id="addChamp" class="section__form__button">Añadir campeón</button>
         </form>
 
-        <aside class="tablero">
+        <aside class="section__aside">
             <section class="primeraFila">
                 <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
                 <img class="casillaPrimeraFila" id="casilla2" src="" alt="">
@@ -80,26 +75,10 @@
             </section>
         </aside>
 
-        <style>
-            .casillaPrimeraFila,
-            .casillaSegundaFila,
-            .casillaTerceraFila,
-            .casillaCuartaFila {
-                border: solid #000a11 0.2000rem;
-                width: 120px;
-                height: 120px;
-            }
-
-            .casillaInvisible {
-                width: 60px;
-                height: 0px;
-            }
-        </style>
-
         <!-- Muestra las todas las filas del team-->
         @if (session('teamRows'))
-            <h4>Campeones seleccionados</h4>
-            <table>
+            <h4 class="section__h4">Campeones seleccionados</h4>
+            <table class="section__table">
                 @php
                     $sortedRows = session('teamRows')->sortBy('position');
                 @endphp
