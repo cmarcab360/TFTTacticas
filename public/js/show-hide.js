@@ -5,7 +5,11 @@ let button = document.getElementsByClassName("show-hide");
 button = Array.from(button);
 
 //Por cada clase show-hide, se agrega un evento click que muestra o esconde el siguiente elemento hermano(tablero)
-button.forEach((el) => el.addEventListener("click", showHide));
+if (window.addEventListener) {
+    button.forEach((el) => el.addEventListener("click", showHide));
+} else {
+    button.forEach((el) => el.attachEvent("onclick", showHide));
+}
 
 //Funcion show-hide para mostrar y ocultar tablero
 function showHide(event) {
