@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #102531;
+  border: solid #223941 1px; }
+  .header__welcome {
+    display: flex;
+    color: #e0e3e4;
+    margin-left: 1rem; }
+  .header__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px 1px 1px 1px;
+    width: 15%;
+    height: auto; }
+  .header__options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; }
+    .header__options__create {
+      border-radius: 5%;
+      border: 0px transparent;
+      width: 60%;
+      font-size: 85%; }
+      .header__options__create a {
+        color: red; }
+      .header__options__create:hover {
+        background-color: red; }
