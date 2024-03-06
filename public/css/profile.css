@@ -1,0 +1,11 @@
+.caja {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .caja__personajes {
+    display: flex;
+    flex-direction: row;
+    gap: 6px; }
+    .caja__personajes__caja__personajes__personaje {
+      display: flex;
+      flex-direction: column; }

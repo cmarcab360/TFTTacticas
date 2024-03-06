@@ -9,6 +9,7 @@
     <link href="css/login.css" rel="stylesheet">
     <link href="css/header.css" rel="stylesheet">
     <link href="css/creaTeam.css" rel="stylesheet">
+    <link href="css/profile.css" rel="stylesheet">
 </head>
 
 <body>

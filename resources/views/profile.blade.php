@@ -1,9 +1,9 @@
 <?php
-use Illuminate\Support\Str; 
+use Illuminate\Support\Str;
 ?>
 <x-layout>
 
-<!--Bucle que muestra los equipos que has creado en tu perfil (en curso)-->
+    <!--Bucle que muestra los equipos que has creado en tu perfil (en curso)-->
 
     <x-header />
 
@@ -28,29 +28,33 @@ use Illuminate\Support\Str;
     </style>
     <!--Bucle que muestra los equipos META (en curso)-->
     <section class="teamsMeta">
-        @foreach($metaTeams as $team)
-        <div id="teamMeta{{$team->id}}">
-            <div>
-                <p>{{ $team->team_name }}</p>
-                <p>{{ $team->num_match != 0 ? round($team->victories / $team->num_match * 100) : "0" }}%</p>
-            </div>
-            <div>
-                @foreach($team->teamrow as $row)
-                <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{Str::of($row->character_id)->lower()}}/hud/{{Str::of($row->character_id)->lower()}}_square.tft_set10.png" alt="Champion {{Str::of($row->character_id)->substr(6)}}" title="{{Str::of($row->character_id)->substr(6)}}">
-                {{Str::of($row->character_id)->substr(6)}}
-                @endforeach
-            </div>
-            @if(session('admin') == 1)
-                <form action="/profile" method="POST">
-                    @csrf
-                    @method('DELETE')
+        @foreach ($metaTeams as $team)
+            <div id="teamMeta{{ $team->id }}" class="caja">
+                <div class="caja__datos">
+                    <p>{{ $team->team_name }}</p>
+                    <p>{{ $team->num_match != 0 ? round(($team->victories / $team->num_match) * 100) : '0' }}%</p>
+                </div>
+                <section class="caja__personajes">
+                    @foreach ($team->teamrow as $row)
+                        <article class="caja__personajes__personaje">
+                            <img class="caja__personajes__personaje__imagen" src="https://raw.communitydragon.org/latest/game/assets/characters/{{ Str::of($row->character_id)->lower() }}/hud/{{ Str::of($row->character_id)->lower() }}_square.tft_set10.png" alt="Champion {{ Str::of($row->character_id)->substr(6) }}" title="{{ Str::of($row->character_id)->substr(6) }}">
+                            <p class="caja__personajes__personaje__nombre">{{ Str::of($row->character_id)->substr(6) }}</p>
+                        </article>
+                    @endforeach
+                </section>
+                @if (session('admin') == 1)
+                    <form action="/profile" method="POST">
+                        @csrf
+                        @method('DELETE')
 
-                    <input type="hidden" name="team_id" value="{{$team->id}}">
-                    <input type="submit" value="Eliminar equipo">
-                </form>
-            @endif
-            <button class='show-hide' data-target="tablero{{$team->id}}" >^</button>
-            <div class="tablero" id="tablero{{$team->id}}">
+                        <input type="hidden" name="team_id" value="{{ $team->id }}">
+                        <input type="submit" value="Eliminar equipo">
+                    </form>
+                @endif
+                <button class='show-hide' data-target="tablero{{ $team->id }}">^</button>
+                
+            </div>
+            <div class="tablero" id="tablero{{ $team->id }}">
                 <section class="primeraFila">
                     <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
                     <img class="casillaPrimeraFila" id="casilla2" src="" alt="">
@@ -92,30 +96,29 @@ use Illuminate\Support\Str;
                     <img class="casillaCuartaFila" id="casilla28" src="" alt="">
                 </section>
             </div>
-        </div>
         @endforeach
     </section>
 
     <!--Linea temporal de separación-->
     <span>------------------------------------------------------------------------------------------</span>
-    
+
 
     <!--Bucle que muestra los equipos que has creado en tu perfil-->
 
     <section class="myTeams">
-        @foreach($teams as $team)
-            <div class="myTeam" id="myTeam">
+        @foreach ($teams as $team)
+            <div class="myTeam caja" id="myTeam">
                 <div>
                     <p>{{ $team->team_name }}</p>
-                    <p>{{ $team->num_match != 0 ? round($team->victories / $team->num_match * 100) : "0" }}%</p>
+                    <p>{{ $team->num_match != 0 ? round(($team->victories / $team->num_match) * 100) : '0' }}%</p>
                 </div>
-                <div>
-                    @foreach($team->teamrow as $row)
-                        <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{Str::of($row->character_id)->lower()}}/hud/{{Str::of($row->character_id)->lower()}}_square.tft_set10.png" alt="Champion {{Str::of($row->character_id)->substr(6)}}" title="{{Str::of($row->character_id)->substr(6)}}">
-                        {{Str::of($row->character_id)->substr(6)}}
+                <div cla>
+                    @foreach ($team->teamrow as $row)
+                        <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{ Str::of($row->character_id)->lower() }}/hud/{{ Str::of($row->character_id)->lower() }}_square.tft_set10.png" alt="Champion {{ Str::of($row->character_id)->substr(6) }}" title="{{ Str::of($row->character_id)->substr(6) }}">
+                        <p>{{ Str::of($row->character_id)->substr(6) }}</p>
                     @endforeach
                 </div>
-                <div class="tablero" id="tablero{{$team->id}}">
+                <div class="tablero" id="tablero{{ $team->id }}">
                     <section class="primeraFila">
                         <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
                         <img class="casillaPrimeraFila" id="casilla2" src="" alt="">
@@ -160,28 +163,28 @@ use Illuminate\Support\Str;
                 <form action="/profile" id="createTeam" method="POST">
                     @csrf
                     @method('PATCH')
-                    <input type="number" name="victories" id="victories" value="{{$team->victories}}">
-                    <input type="number" name="num_match" id="num_match" value="{{$team->num_match}}">
-                    <input type="hidden" name="team_id" value="{{$team->id}}">
+                    <input type="number" name="victories" id="victories" value="{{ $team->victories }}">
+                    <input type="number" name="num_match" id="num_match" value="{{ $team->num_match }}">
+                    <input type="hidden" name="team_id" value="{{ $team->id }}">
                     <input type="submit" value="Modificar">
                 </form>
                 <form action="/profile" method="POST">
                     @csrf
                     @method('DELETE')
 
-                    <input type="hidden" name="team_id" value="{{$team->id}}">
+                    <input type="hidden" name="team_id" value="{{ $team->id }}">
                     <input type="submit" value="Eliminar equipo">
                 </form>
-                <button class='show-hide' data-target="tablero{{$team->id}}">^</button>
+                <button class='show-hide' data-target="tablero{{ $team->id }}">^</button>
             </div>
         @endforeach
     </section>
 
 
-    
-    <!--Propagación de id usuario y si es admin-->
-    <p>Id usuario:{{session('user_id')}}</p>
-    <p>Admin:{{session('admin')}}</p>
+
+    <!--Propagación de id usuario y si es admin
+    <p>Id usuario:{{ session('user_id') }}</p>
+    <p>Admin:{{ session('admin') }}</p>-->
 
 
     <!--Script-->
@@ -189,7 +192,7 @@ use Illuminate\Support\Str;
         const url =
             "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/en_gb/v1/tftchampions.json";
 
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             function mostrarDatosApi() {
                 fetch(url)
                     .then((data) => data.json())
@@ -237,29 +240,33 @@ use Illuminate\Support\Str;
                         }
                         console.log(contenedor);
 
-                        @foreach($teams as $row)
-                        var tableros = document.getElementById("tablero" + {{ $row->id}});
-                         console.log(tableros);
-                        
+                        @foreach ($teams as $row)
+                            var tableros = document.getElementById("tablero" + {{ $row->id }});
+                            console.log(tableros);
 
-                        var teamRows = <?php    echo json_encode($teamRows); ?>;
-                         console.log(teamRows);
 
-                for (let i = 0; i < teamRows.length; i++) {
-                for (let child of tableros.children) {
-                    for (let img of child.children) {
-                        if (img.id === "casilla" + teamRows[i].position && teamRows[i].team_id === {{ $row->id }}) {
-                            img.src = "https://raw.communitydragon.org/latest/game/assets/characters/tft10_" + teamRows[i].character_id.substr(6).toLowerCase() + "/hud/tft10_" + teamRows[i].character_id.substr(6).toLowerCase() + "_square.tft_set10.png";
-                        }
-                    }
-                }
+                            var teamRows = <?php echo json_encode($teamRows); ?>;
+                            console.log(teamRows);
+
+                            for (let i = 0; i < teamRows.length; i++) {
+                                for (let child of tableros.children) {
+                                    for (let img of child.children) {
+                                        if (img.id === "casilla" + teamRows[i].position && teamRows[i]
+                                            .team_id === {{ $row->id }}) {
+                                            img.src =
+                                                "https://raw.communitydragon.org/latest/game/assets/characters/tft10_" +
+                                                teamRows[i].character_id.substr(6).toLowerCase() +
+                                                "/hud/tft10_" + teamRows[i].character_id.substr(6)
+                                            .toLowerCase() + "_square.tft_set10.png";
+                                        }
+                                    }
+                                }
+                            }
+                        @endforeach
+                    });
             }
-            @endforeach
+            mostrarDatosApi();
         });
-        }
-        mostrarDatosApi();
-        });
-
     </script>
 
     <script src="{{ asset('js/show-hide.js') }}"></script>

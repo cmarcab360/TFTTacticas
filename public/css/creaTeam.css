@@ -7,7 +7,6 @@
   justify-content: center; }
   .contenedor__article {
     display: flex;
-    gap: 15px;
     height: 40vh;
     align-items: center; }
     .contenedor__article__titulo {
@@ -49,7 +48,7 @@
         border: 0px transparent;
         width: 20vw;
         padding: 5px;
-        margin: 3px 8px 16px 8px;
+        margin: 5px 8px 0px 8px;
         background-color: #d47559;
         color: white;
         font-size: 3vw; }
@@ -62,31 +61,41 @@
         .contenedor__article__formulario__button--blue:hover {
           background-color: #127ab6; }
 
-@media (min-width: 600px) {
-  .contenedor__article {
-    height: 50vh; }
-    .contenedor__article__imagen {
-      flex: 1;
-      height: 100%;
-      width: auto; }
-    .contenedor__article__formulario {
-      height: 40vh;
-      font-size: medium;
-      padding: 20px 20px; }
-      .contenedor__article__formulario__input__caja {
-        height: 1vh;
-        width: 30vw;
-        padding: 15px 10px;
-        font-size: medium; }
-      .contenedor__article__formulario__button {
-        border-radius: 5px;
-        padding: 8px 10px;
-        margin: 3px 8px 16px 8px;
-        width: 15vw;
-        font-size: medium; } }
+@media (min-width: 425px) {
+  .contenedor {
+    gap: 5px; }
+    .contenedor__article {
+      height: 60vh;
+      gap: 5px; }
+      .contenedor__article__imagen {
+        flex: 1;
+        height: 55vh;
+        width: auto; }
+      .contenedor__article__formulario {
+        height: 50vh;
+        font-size: medium;
+        padding: 10px 10px; }
+        .contenedor__article__formulario__input__caja {
+          height: 1vh;
+          width: 30vw;
+          padding: 10px 5px;
+          font-size: medium; }
+        .contenedor__article__formulario__button {
+          border-radius: 5px;
+          padding: 8px 10px;
+          margin: 3px 8px 16px 8px;
+          width: 15vw;
+          font-size: medium; } }
 
 @media (min-width: 1000px) {
   .contenedor__article {
     height: 60vh; }
     .contenedor__article__formulario {
-      height: 55vh; } }
+      height: 56vh; }
+      .contenedor__article__formulario__input__caja {
+        padding: 15px 10px;
+        font-size: large; }
+      .contenedor__article__formulario__input__label {
+        font-size: x-large; }
+      .contenedor__article__formulario__button {
+        font-size: x-large; } }
