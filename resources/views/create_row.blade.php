@@ -1,7 +1,7 @@
 <x-layout>
     <x-header />
     <!--Propagación de id usuario y si es admin-->
-    <p>Id team:{{ session('team_id') }}</p>
+    <!--<p>Id team:{{ session('team_id') }}</p>-->
     <section class="section">
         <h3 class="section__h3">Creacion de equipo</h3>
 
@@ -10,7 +10,7 @@
         <form action="/createRow" method="post" id="addChamp" class="section_form">
             @csrf
             <div>
-                <input type="hidden" list="campeonesList" name="character_id" id="character_id"/>
+                <input type="hidden" list="campeonesList" name="character_id" id="character_id" value="nulo"/>
                 <datalist id="campeonesList"></datalist>
 
                 @error('character_id')
@@ -19,17 +19,15 @@
             </div>
 
             <div class="section__form__position">
-                <label for="position">position:</label>
-                <input type="number" name="position" id="position" required>
+                <input type="hidden" name="position" id="position" required>
                 @error('position')
                     <p>{{ $message }}</p>
                 @enderror
+                <button type="submit" id="addChamp">Añadir campeón</button>
             </div>
 
             <!-- Campo oculto para almacenar id_team-->
             <input type="hidden" name="team_id" value="{{ session('team_id') }}">
-
-            <button type="submit" id="addChamp" class="section__form__button">Añadir campeón</button>
         </form>
 
         <aside class="section__aside">
@@ -90,7 +88,7 @@
                 @endforeach
             </table>
         @endif
-        <a href="/profile">Volver a la pagina principal</a>
+        <button><a href="/profile">Volver a la pagina principal</a></button>
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

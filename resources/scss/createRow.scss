@@ -1,6 +1,5 @@
 .section {
-    &__h3
-    {
+    &__h3 {
         text-align: center;
     }
 
@@ -8,45 +7,279 @@
         display: flex;
         justify-content: space-evenly;
         flex-wrap: wrap;
-       &__img{
-        margin: 0.313rem;
-        filter: brightness(40%);
-       }
-         &__img:hover {
-          transform: scale(1.2);
-          transition: transform 0.2s;
-         }
+        &__img {
+            margin: 0.313rem;
+            filter: brightness(40%);
+        }
+        &__img:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s;
+        }
     }
 
-    &__form
-    {
-        &__position
-        {
+    &__form {
+        &__position {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             row-gap: 0.625rem;
-            margin-top: 0.625rem;  
+            margin-top: 0.625rem;
+            margin-bottom: 0.625rem;
+        }
+        &__position input {
+            -webkit-appearance: textfield;
+            appearance: textfield;
+            width: 60%;
+            padding: 0.625rem;
+            margin-top: 0.625rem;
+            margin-bottom: 0.625rem;
+        }
+
+        &__position button{
+            display: none;
         }
     }
-
-    &__aside
-    {
-        margin-left: 15%;
+    &__aside {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
 }
 
+@media (max-width: 395px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 0.313rem solid #E0E3E4;
+        background-color: #E0E3E4;
+        width: 21px;
+        height: 21px;
+        object-fit: cover;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 10.5px;
+        height: 0px;
+    }
+}
+
+//Hacer que la imagen ocupe el 100% del contenedor
+@media (min-width: 396px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 0.313rem solid #E0E3E4;
+        background-color: #E0E3E4;
+        width: 25px;
+        height: 25px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 17.5px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 423px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 0.313rem solid #E0E3E4;
+        background-color: #E0E3E4;
+        width: 30px;
+        height: 30px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 15px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 498px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 0.313rem solid #E0E3E4;
+        background-color: #E0E3E4;
+        width: 40px;
+        height: 40px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 20px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 573px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 0.313rem solid #E0E3E4;
+        background-color: #E0E3E4;
+        width: 50px;
+        height: 50px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 25px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 648px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 0.313rem solid #E0E3E4;
+        background-color: #E0E3E4;
+        width: 60px;
+        height: 60px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 30px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 723px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 0.313rem solid #E0E3E4;
+        background-color: #E0E3E4;
+        width: 70px;
+        height: 70px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 35px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 798px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 0.313rem solid #E0E3E4;
+        background-color: #E0E3E4;
+        width: 75px;
+        height: 75px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 37.5px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 873px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 0.313rem solid #E0E3E4;
+        background-color: #E0E3E4;
+        width: 90px;
+        height: 90px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 45px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 947px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 0.313rem solid #E0E3E4;
+        background-color: #E0E3E4;
+        width: 100px;
+        height: 100px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 50px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 1097px)
+{
 .casillaPrimeraFila,
 .casillaSegundaFila,
 .casillaTerceraFila,
 .casillaCuartaFila {
-    border: solid #000a11 0.2rem;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    border: 0.313rem solid #E0E3E4;
+    background-color: #E0E3E4;
     width: 120px;
     height: 120px;
+    margin: 0 0.313rem 0 0.313rem; 
+    border: transparent;
 }
 
 .casillaInvisible {
+    background-color: #0d202b;
+    border: 0.313rem solid #0d202b;
     width: 60px;
     height: 0px;
+}
 }

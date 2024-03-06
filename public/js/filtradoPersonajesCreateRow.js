@@ -108,58 +108,23 @@ function mostrarDatosApi() {
                 div.appendChild(img);
             });
 
-            // Agrega un listener para el evento 'keyup'
-            if (window.addEventListener) {
-                positionInput.addEventListener("keyup", function () {
-                    // Obtiene el valor ingresado en el input
-                    const positionValue = parseInt(positionInput.value);
-
-                    // Restablece el estilo de todas las casillas
-                    resetCasillasStyle();
-
-                    if (
-                        !isNaN(positionValue) &&
-                        positionValue >= 1 &&
-                        positionValue <= 28
-                    ) {
-                        // Ilumina la casilla correspondiente
-                        iluminarCasilla(positionValue);
+            //Cuando hago click en elemento con id casilla[i] (desde casilla1 hasta casilla28), en el input hidden con id="position" se escribe el valor de i y si hago click, se hace el submit de la pagina. Cuando tengo el cursor encima de la casilla, se colorea de amarillo, y cuando lo quito, se quita el color.
+            for (let i = 1; i <= 28; i++) {
+                document.getElementById(`casilla${i}`).addEventListener("click", function () {
+                    positionInput.value = i;
+                    document.getElementById("addChamp").submit();
+                });
+                document.getElementById(`casilla${i}`).addEventListener("mouseover", function () {
+                    document.getElementById(`casilla${i}`).style.backgroundColor = "#cff136";
+                    //Si la casilla no tiene un scr establecido, al pasar el raton por encima de la casilla, se le añade un borde amarillo
+                    if (document.getElementById(`casilla${i}`).src === "") {
+                        document.getElementById(`casilla${i}`).style.border = "0.313rem solid #cff136";
+                        document.getElementById(`casilla${i}`).style.boxSizing = "border-box";
                     }
                 });
-            } else {
-                positionInput.attachEvent("onkeyup", function () {
-                    // Obtiene el valor ingresado en el input
-                    const positionValue = parseInt(positionInput.value);
-
-                    // Restablece el estilo de todas las casillas
-                    resetCasillasStyle();
-
-                    if (
-                        !isNaN(positionValue) &&
-                        positionValue >= 1 &&
-                        positionValue <= 28
-                    ) {
-                        // Ilumina la casilla correspondiente
-                        iluminarCasilla(positionValue);
-                    }
+                document.getElementById(`casilla${i}`).addEventListener("mouseout", function () {
+                    document.getElementById(`casilla${i}`).style.backgroundColor = "#E0E3E4";
                 });
-            }
-
-            function resetCasillasStyle() {
-                const casillas = document.querySelectorAll(
-                    ".casillaPrimeraFila, .casillaSegundaFila, .casillaTerceraFila, .casillaCuartaFila"
-                );
-                casillas.forEach((casilla) => {
-                    casilla.style.backgroundColor = ""; // Restablece el color de fondo
-                });
-            }
-
-            function iluminarCasilla(position) {
-                const casillaId = "casilla" + position;
-                const casillaIluminar = document.getElementById(casillaId);
-
-                // Ilumina la casilla cambiando el color de fondo
-                casillaIluminar.style.backgroundColor = "#df93db";
             }
         });
 }
