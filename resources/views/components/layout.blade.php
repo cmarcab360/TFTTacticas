@@ -9,6 +9,16 @@
     <link href="css/login.css" rel="stylesheet">
     <link href="css/header.css" rel="stylesheet">
     <link href="css/creaTeam.css" rel="stylesheet">
+    <link href="css/miniMeta.css" rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/f0d12fad38.js"
+      crossorigin="anonymous"
+    ></script>
 </head>
 
 <body>
@@ -16,9 +26,6 @@
 
     {{ $slot }}
 
-    <footer>
-        footer
-    </footer>
 
     <!--Mensaje de success si registo se ha hecho/ Eliminar este mensaje con javaScript despues de 3 sec-->
     @if(session()->has('success'))
