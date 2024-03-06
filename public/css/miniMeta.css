@@ -1,0 +1,50 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #123040;
+  border: solid #223941 1px;
+  border-radius: 7px;
+  width: 12%;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+  .menu__title {
+    display: flex;
+    flex-direction: row;
+    background-color: #DF623C;
+    border-radius: 7px;
+    justify-content: space-between;
+    align-items: center;
+    width: 8rem;
+    height: 2rem; }
+    .menu__title p {
+      color: #e0e3e4;
+      margin: 5px; }
+    .menu__title button {
+      background-color: #e0e3e4;
+      border: 0px transparent;
+      border-radius: 100%;
+      margin: 5px; }
+  .menu__list {
+    display: none;
+    flex-direction: column;
+    background-color: #112D3C;
+    border: solid #223941 1px; }
+    .menu__list__equipo {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border: solid #223941 1px;
+      background-color: #112D3C;
+      border-radius: 7px;
+      width: 700%; }
+      .menu__list__equipo__ranking {
+        width: 5%;
+        margin: 0.1rem 0.1rem 0.1rem 0.1rem; }
+      .menu__list__equipo__imagenes {
+        display: flex;
+        flex-direction: row; }
+        .menu__list__equipo__imagenes__img {
+          width: 12%;
+          margin: 0.1rem 0.1rem 0.1rem 0.1rem; }
