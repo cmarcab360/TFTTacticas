@@ -6,9 +6,11 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #0D202B;
+  background-color: #0d202b;
   font-family: "Nunito", sans-serif;
-  color: #6AA0A7; }
+  color: #6aa0a7;
+  margin: 0;
+  padding: 0; }
 
 a:link,
 a:visited,
@@ -17,8 +19,8 @@ a:active {
 
 /*------------Success-message-----------*/
 .success {
-  color: #E0E3E4;
-  background-color: #D47559;
+  color: #e0e3e4;
+  background-color: #d47559;
   padding-top: 2px;
   padding-right: 4px;
   position: fixed;
@@ -26,6 +28,8 @@ a:active {
   right: 3px;
   justify-content: center;
   border-radius: 5px; }
+  .success p {
+    margin-left: 3.5px; }
 
 /*--------------Error-message----------*/
 .error {
