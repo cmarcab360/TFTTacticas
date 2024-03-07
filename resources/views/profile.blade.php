@@ -182,12 +182,60 @@ use Illuminate\Support\Str;
             </div>
             <article class="caja__contenedor">
                 <form action="/profile" id="createTeam" method="POST" class="caja__contenedor__formulario">
+                </div>
+                <div class="tablero" id="tablero{{$team->id}}">
+                    <section class="primeraFila">
+                        <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
+                        <img class="casillaPrimeraFila" id="casilla2" src="" alt="">
+                        <img class="casillaPrimeraFila" id="casilla3" src="" alt="">
+                        <img class="casillaPrimeraFila" id="casilla4" src="" alt="">
+                        <img class="casillaPrimeraFila" id="casilla5" src="" alt="">
+                        <img class="casillaPrimeraFila" id="casilla6" src="" alt="">
+                        <img class="casillaPrimeraFila" id="casilla7" src="" alt="">
+                        <img class="casillaInvisible" src="" alt="">
+                    </section>
+                    <section class="segundaFila">
+                        <img class="casillaInvisible" src="" alt="">
+                        <img class="casillaSegundaFila" id="casilla8" src="" alt="">
+                        <img class="casillaSegundaFila" id="casilla9" src="" alt="">
+                        <img class="casillaSegundaFila" id="casilla10" src="" alt="">
+                        <img class="casillaSegundaFila" id="casilla11" src="" alt="">
+                        <img class="casillaSegundaFila" id="casilla12" src="" alt="">
+                        <img class="casillaSegundaFila" id="casilla13" src="" alt="">
+                        <img class="casillaSegundaFila" id="casilla14" src="" alt="">
+                    </section>
+                    <section class="terceraFila">
+                        <img class="casillaTerceraFila" id="casilla15" src="" alt="">
+                        <img class="casillaTerceraFila" id="casilla16" src="" alt="">
+                        <img class="casillaTerceraFila" id="casilla17" src="" alt="">
+                        <img class="casillaTerceraFila" id="casilla18" src="" alt="">
+                        <img class="casillaTerceraFila" id="casilla19" src="" alt="">
+                        <img class="casillaTerceraFila" id="casilla20" src="" alt="">
+                        <img class="casillaTerceraFila" id="casilla21" src="" alt="">
+                        <img class="casillaInvisible" src="" alt="">
+                    </section>
+                    <section class="cuartaFila">
+                        <img class="casillaInvisible" src="" alt="">
+                        <img class="casillaCuartaFila" id="casilla22" src="" alt="">
+                        <img class="casillaCuartaFila" id="casilla23" src="" alt="">
+                        <img class="casillaCuartaFila" id="casilla24" src="" alt="">
+                        <img class="casillaCuartaFila" id="casilla25" src="" alt="">
+                        <img class="casillaCuartaFila" id="casilla26" src="" alt="">
+                        <img class="casillaCuartaFila" id="casilla27" src="" alt="">
+                        <img class="casillaCuartaFila" id="casilla28" src="" alt="">
+                    </section>
+                </div>
+                <form action="/profile" id="modifyTeam" method="POST">
                     @csrf
                     @method('PATCH')
                     <i class="fa-solid fa-trophy"></i><input class="caja__contenedor__formulario__input" type="number" name="victories" id="victories" value="{{ $team->victories }}">
                     <i class="fa-solid fa-gamepad"></i><input class="caja__contenedor__formulario__input"type="number" name="num_match" id="num_match" value="{{ $team->num_match }}">
                     <input type="hidden" name="team_id" value="{{ $team->id }}">
                     <button class="caja__contenedor__formulario__button--orange"type="submit"><i class="fa-solid fa-plus"></i></button>
+                    <input type="number" name="victories" id="modifyVictories" value="{{$team->victories}}">
+                    <input type="number" name="num_match" id="modifyNumMatch" value="{{$team->num_match}}">
+                    <input type="hidden" name="team_id" value="{{$team->id}}">
+                    <input type="submit" value="Modificar">
                 </form>
             </article>
         @endforeach
@@ -284,7 +332,7 @@ use Illuminate\Support\Str;
 
     <script src="{{ asset('js/show-hide.js') }}"></script>
     <script src="{{ asset('js/Meta.js') }}"></script>
-    <script type="module" src="js/createTeam.js"></script>
+    <script type="module" src="js/modifyTeam.js"></script>
     <script type="module" src="js/validation.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
 

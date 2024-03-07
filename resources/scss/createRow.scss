@@ -1,0 +1,297 @@
+$color-fondo-buttons-logout: #d47559;
+$color-fondo-buttons-logout-hover: #df623c;
+.section {
+    &__h3 {
+        text-align: center;
+    }
+
+    &__iconos {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        &__img {
+            margin: 0.313rem;
+            filter: brightness(40%);
+        }
+        &__img:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s;
+        }
+    }
+
+    &__form {
+        &__position {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: 0.625rem;
+            margin-top: 0.625rem;
+            margin-bottom: 0.625rem;
+        }
+        &__position input {
+            -webkit-appearance: textfield;
+            appearance: textfield;
+            width: 60%;
+            padding: 0.625rem;
+            margin-top: 0.625rem;
+            margin-bottom: 0.625rem;
+        }
+
+        &__position button{
+            display: none;
+        }
+    }
+    &__aside {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__button
+    {
+        display: flex;
+        margin: 0.313rem;
+        padding: 0.313rem;
+        border-radius: 0.313rem;
+        border: 0px transparent;
+        background-color: $color-fondo-buttons-logout;
+        &__goBack
+        {
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        &:hover {
+            background-color: $color-fondo-buttons-logout-hover;
+        }
+    
+    }
+
+}
+
+@media (max-width: 352px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background-color: #E0E3E4;
+        width: 25px;
+        height: 25px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 12.5px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 353px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background-color: #E0E3E4;
+        width: 30px;
+        height: 30px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 15px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 429px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background-color: #E0E3E4;
+        width: 40px;
+        height: 40px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 20px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 503px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background-color: #E0E3E4;
+        width: 45px;
+        height: 45px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 22.5px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 578px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background-color: #E0E3E4;
+        width: 55px;
+        height: 55px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 27.5px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 653px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background-color: #E0E3E4;
+        width: 65px;
+        height: 65px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 32.5px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 723px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background-color: #E0E3E4;
+        width: 70px;
+        height: 70px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 35px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 798px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background-color: #E0E3E4;
+        width: 75px;
+        height: 75px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 37.5px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 873px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background-color: #E0E3E4;
+        width: 90px;
+        height: 90px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 45px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 947px) {
+    .casillaPrimeraFila,
+    .casillaSegundaFila,
+    .casillaTerceraFila,
+    .casillaCuartaFila {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        background-color: #E0E3E4;
+        width: 100px;
+        height: 100px;
+        margin: 0 0.313rem 0 0.313rem; 
+    }
+    
+    .casillaInvisible {
+        background-color: #0d202b;
+        border: 0.313rem solid #0d202b;
+        width: 50px;
+        height: 0px;
+    }
+}
+
+@media (min-width: 1097px)
+{
+.casillaPrimeraFila,
+.casillaSegundaFila,
+.casillaTerceraFila,
+.casillaCuartaFila {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background-color: #E0E3E4;
+    width: 120px;
+    height: 120px;
+    margin: 0 0.313rem 0 0.313rem; 
+    border: transparent;
+}
+
+.casillaInvisible {
+    background-color: #0d202b;
+    border: 0.313rem solid #0d202b;
+    width: 60px;
+    height: 0px;
+}
+}

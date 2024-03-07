@@ -47,7 +47,11 @@
 
 
     </section>
+    
+    <x-miniMeta />
+
     <script type="module" src="js/createTeam.js"></script>
     <script type="module" src="js/validation.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
+    
 </x-layout>
