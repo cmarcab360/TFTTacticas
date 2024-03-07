@@ -116,14 +116,13 @@ function mostrarDatosApi() {
                 });
                 document.getElementById(`casilla${i}`).addEventListener("mouseover", function () {
                     document.getElementById(`casilla${i}`).style.backgroundColor = "#cff136";
-                    //Si la casilla no tiene un scr establecido, al pasar el raton por encima de la casilla, se le añade un borde amarillo
-                    if (document.getElementById(`casilla${i}`).src === "") {
-                        document.getElementById(`casilla${i}`).style.border = "0.313rem solid #cff136";
-                        document.getElementById(`casilla${i}`).style.boxSizing = "border-box";
-                    }
+                    document.getElementById(`casilla${i}`).style.borderColor = "#cff136";
+                    
                 });
                 document.getElementById(`casilla${i}`).addEventListener("mouseout", function () {
                     document.getElementById(`casilla${i}`).style.backgroundColor = "#E0E3E4";
+                    document.getElementById(`casilla${i}`).style.borderColor = "transparent";
+                    
                 });
             }
         });

@@ -39,31 +39,12 @@
   justify-content: center;
   align-items: center; }
 
-@media (max-width: 395px) {
+@media (max-width: 352px) {
   .casillaPrimeraFila,
   .casillaSegundaFila,
   .casillaTerceraFila,
   .casillaCuartaFila {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
-    background-color: #E0E3E4;
-    width: 21px;
-    height: 21px;
-    object-fit: cover;
-    margin: 0 0.313rem 0 0.313rem; }
-  .casillaInvisible {
-    background-color: #0d202b;
-    border: 0.313rem solid #0d202b;
-    width: 10.5px;
-    height: 0px; } }
-
-@media (min-width: 396px) {
-  .casillaPrimeraFila,
-  .casillaSegundaFila,
-  .casillaTerceraFila,
-  .casillaCuartaFila {
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
     background-color: #E0E3E4;
     width: 25px;
     height: 25px;
@@ -71,16 +52,15 @@
   .casillaInvisible {
     background-color: #0d202b;
     border: 0.313rem solid #0d202b;
-    width: 17.5px;
+    width: 12.5px;
     height: 0px; } }
 
-@media (min-width: 423px) {
+@media (min-width: 353px) {
   .casillaPrimeraFila,
   .casillaSegundaFila,
   .casillaTerceraFila,
   .casillaCuartaFila {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
     background-color: #E0E3E4;
     width: 30px;
     height: 30px;
@@ -91,13 +71,12 @@
     width: 15px;
     height: 0px; } }
 
-@media (min-width: 498px) {
+@media (min-width: 429px) {
   .casillaPrimeraFila,
   .casillaSegundaFila,
   .casillaTerceraFila,
   .casillaCuartaFila {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
     background-color: #E0E3E4;
     width: 40px;
     height: 40px;
@@ -108,38 +87,52 @@
     width: 20px;
     height: 0px; } }
 
-@media (min-width: 573px) {
+@media (min-width: 503px) {
   .casillaPrimeraFila,
   .casillaSegundaFila,
   .casillaTerceraFila,
   .casillaCuartaFila {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
     background-color: #E0E3E4;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     margin: 0 0.313rem 0 0.313rem; }
   .casillaInvisible {
     background-color: #0d202b;
     border: 0.313rem solid #0d202b;
-    width: 25px;
+    width: 22.5px;
     height: 0px; } }
 
-@media (min-width: 648px) {
+@media (min-width: 578px) {
   .casillaPrimeraFila,
   .casillaSegundaFila,
   .casillaTerceraFila,
   .casillaCuartaFila {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
     background-color: #E0E3E4;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     margin: 0 0.313rem 0 0.313rem; }
   .casillaInvisible {
     background-color: #0d202b;
     border: 0.313rem solid #0d202b;
-    width: 30px;
+    width: 27.5px;
+    height: 0px; } }
+
+@media (min-width: 653px) {
+  .casillaPrimeraFila,
+  .casillaSegundaFila,
+  .casillaTerceraFila,
+  .casillaCuartaFila {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background-color: #E0E3E4;
+    width: 65px;
+    height: 65px;
+    margin: 0 0.313rem 0 0.313rem; }
+  .casillaInvisible {
+    background-color: #0d202b;
+    border: 0.313rem solid #0d202b;
+    width: 32.5px;
     height: 0px; } }
 
 @media (min-width: 723px) {
@@ -148,7 +141,6 @@
   .casillaTerceraFila,
   .casillaCuartaFila {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
     background-color: #E0E3E4;
     width: 70px;
     height: 70px;
@@ -165,7 +157,6 @@
   .casillaTerceraFila,
   .casillaCuartaFila {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
     background-color: #E0E3E4;
     width: 75px;
     height: 75px;
@@ -182,7 +173,6 @@
   .casillaTerceraFila,
   .casillaCuartaFila {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
     background-color: #E0E3E4;
     width: 90px;
     height: 90px;
@@ -199,7 +189,6 @@
   .casillaTerceraFila,
   .casillaCuartaFila {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
     background-color: #E0E3E4;
     width: 100px;
     height: 100px;
@@ -216,7 +205,6 @@
   .casillaTerceraFila,
   .casillaCuartaFila {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 0.313rem solid #E0E3E4;
     background-color: #E0E3E4;
     width: 120px;
     height: 120px;
