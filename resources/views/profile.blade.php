@@ -27,18 +27,24 @@ use Illuminate\Support\Str;
         }
     </style>
     <!--Bucle que muestra los equipos META (en curso)-->
-    <section class="teamsMeta">
+    <section>
+        <h1 class="titulo">Meta Teams</h1>
         @foreach ($metaTeams as $team)
             <div id="teamMeta{{ $team->id }}" class="caja">
                 <div class="caja__datos">
-                    <p>{{ $team->team_name }}</p>
-                    <p>{{ $team->num_match != 0 ? round(($team->victories / $team->num_match) * 100) : '0' }}%</p>
+                    <p class="caja__datos__nombre">{{ $team->team_name }}</p>
+                    <p class="caja__datos__victorias">
+                        {{ $team->num_match != 0 ? round(($team->victories / $team->num_match) * 100) : '0' }}%<i class="fa-solid fa-trophy"></i></p>
                 </div>
                 <section class="caja__personajes">
                     @foreach ($team->teamrow as $row)
                         <article class="caja__personajes__personaje">
-                            <img class="caja__personajes__personaje__imagen" src="https://raw.communitydragon.org/latest/game/assets/characters/{{ Str::of($row->character_id)->lower() }}/hud/{{ Str::of($row->character_id)->lower() }}_square.tft_set10.png" alt="Champion {{ Str::of($row->character_id)->substr(6) }}" title="{{ Str::of($row->character_id)->substr(6) }}">
-                            <p class="caja__personajes__personaje__nombre">{{ Str::of($row->character_id)->substr(6) }}</p>
+                            <img class="caja__personajes__personaje__imagen"
+                                src="https://raw.communitydragon.org/latest/game/assets/characters/{{ Str::of($row->character_id)->lower() }}/hud/{{ Str::of($row->character_id)->lower() }}_square.tft_set10.png"
+                                alt="Champion {{ Str::of($row->character_id)->substr(6) }}"
+                                title="{{ Str::of($row->character_id)->substr(6) }} ">
+                            <p class="caja__personajes__personaje__nombre">{{ Str::of($row->character_id)->substr(6) }}
+                            </p>
                         </article>
                     @endforeach
                 </section>
@@ -48,11 +54,11 @@ use Illuminate\Support\Str;
                         @method('DELETE')
 
                         <input type="hidden" name="team_id" value="{{ $team->id }}">
-                        <input type="submit" value="Eliminar equipo">
+                        <button type="submit" class="caja__button--orange"><i class="fa-solid fa-minus"></i></button>
                     </form>
                 @endif
-                <button class='show-hide' data-target="tablero{{ $team->id }}">^</button>
-                
+                <button class='show-hide caja__button--blue' data-target="tablero{{ $team->id }}">^</button>
+
             </div>
             <div class="tablero" id="tablero{{ $team->id }}">
                 <section class="primeraFila">
@@ -99,84 +105,91 @@ use Illuminate\Support\Str;
         @endforeach
     </section>
 
-    <!--Linea temporal de separación-->
-    <span>------------------------------------------------------------------------------------------</span>
-
-
     <!--Bucle que muestra los equipos que has creado en tu perfil-->
 
     <section class="myTeams">
+        <h1 class="titulo">Your teams</h1>
         @foreach ($teams as $team)
-            <div class="myTeam caja" id="myTeam">
-                <div>
-                    <p>{{ $team->team_name }}</p>
-                    <p>{{ $team->num_match != 0 ? round(($team->victories / $team->num_match) * 100) : '0' }}%</p>
+            <div class="caja" id="myTeam">
+                <div class="caja__datos">
+                    <p class="caja__datos__nombre">{{ $team->team_name }}</p>
+                    <p class="caja__datos__victorias">
+                        {{ $team->num_match != 0 ? round(($team->victories / $team->num_match) * 100) : '0' }}%<i class="fa-solid fa-trophy"></i></p>
                 </div>
-                <div cla>
+                <section class="caja__personajes">
                     @foreach ($team->teamrow as $row)
-                        <img src="https://raw.communitydragon.org/latest/game/assets/characters/{{ Str::of($row->character_id)->lower() }}/hud/{{ Str::of($row->character_id)->lower() }}_square.tft_set10.png" alt="Champion {{ Str::of($row->character_id)->substr(6) }}" title="{{ Str::of($row->character_id)->substr(6) }}">
-                        <p>{{ Str::of($row->character_id)->substr(6) }}</p>
+                        <article class="caja__personajes__personaje">
+                            <img class="caja__personajes__personaje__imagen"
+                                src="https://raw.communitydragon.org/latest/game/assets/characters/{{ Str::of($row->character_id)->lower() }}/hud/{{ Str::of($row->character_id)->lower() }}_square.tft_set10.png"
+                                alt="Champion {{ Str::of($row->character_id)->substr(6) }}"
+                                title="{{ Str::of($row->character_id)->substr(6) }}">
+                            <p class="caja__personajes__personaje__nombre">
+                                {{ Str::of($row->character_id)->substr(6) }}
+                            </p>
+                        </article>
                     @endforeach
-                </div>
-                <div class="tablero" id="tablero{{ $team->id }}">
-                    <section class="primeraFila">
-                        <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
-                        <img class="casillaPrimeraFila" id="casilla2" src="" alt="">
-                        <img class="casillaPrimeraFila" id="casilla3" src="" alt="">
-                        <img class="casillaPrimeraFila" id="casilla4" src="" alt="">
-                        <img class="casillaPrimeraFila" id="casilla5" src="" alt="">
-                        <img class="casillaPrimeraFila" id="casilla6" src="" alt="">
-                        <img class="casillaPrimeraFila" id="casilla7" src="" alt="">
-                        <img class="casillaInvisible" src="" alt="">
-                    </section>
-                    <section class="segundaFila">
-                        <img class="casillaInvisible" src="" alt="">
-                        <img class="casillaSegundaFila" id="casilla8" src="" alt="">
-                        <img class="casillaSegundaFila" id="casilla9" src="" alt="">
-                        <img class="casillaSegundaFila" id="casilla10" src="" alt="">
-                        <img class="casillaSegundaFila" id="casilla11" src="" alt="">
-                        <img class="casillaSegundaFila" id="casilla12" src="" alt="">
-                        <img class="casillaSegundaFila" id="casilla13" src="" alt="">
-                        <img class="casillaSegundaFila" id="casilla14" src="" alt="">
-                    </section>
-                    <section class="terceraFila">
-                        <img class="casillaTerceraFila" id="casilla15" src="" alt="">
-                        <img class="casillaTerceraFila" id="casilla16" src="" alt="">
-                        <img class="casillaTerceraFila" id="casilla17" src="" alt="">
-                        <img class="casillaTerceraFila" id="casilla18" src="" alt="">
-                        <img class="casillaTerceraFila" id="casilla19" src="" alt="">
-                        <img class="casillaTerceraFila" id="casilla20" src="" alt="">
-                        <img class="casillaTerceraFila" id="casilla21" src="" alt="">
-                        <img class="casillaInvisible" src="" alt="">
-                    </section>
-                    <section class="cuartaFila">
-                        <img class="casillaInvisible" src="" alt="">
-                        <img class="casillaCuartaFila" id="casilla22" src="" alt="">
-                        <img class="casillaCuartaFila" id="casilla23" src="" alt="">
-                        <img class="casillaCuartaFila" id="casilla24" src="" alt="">
-                        <img class="casillaCuartaFila" id="casilla25" src="" alt="">
-                        <img class="casillaCuartaFila" id="casilla26" src="" alt="">
-                        <img class="casillaCuartaFila" id="casilla27" src="" alt="">
-                        <img class="casillaCuartaFila" id="casilla28" src="" alt="">
-                    </section>
-                </div>
-                <form action="/profile" id="createTeam" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <input type="number" name="victories" id="victories" value="{{ $team->victories }}">
-                    <input type="number" name="num_match" id="num_match" value="{{ $team->num_match }}">
-                    <input type="hidden" name="team_id" value="{{ $team->id }}">
-                    <input type="submit" value="Modificar">
-                </form>
+                </section>
                 <form action="/profile" method="POST">
                     @csrf
                     @method('DELETE')
 
                     <input type="hidden" name="team_id" value="{{ $team->id }}">
-                    <input type="submit" value="Eliminar equipo">
+                    <input type="submit" value="-">
                 </form>
                 <button class='show-hide' data-target="tablero{{ $team->id }}">^</button>
             </div>
+            <div class="tablero" id="tablero{{ $team->id }}">
+                <section class="primeraFila" class="caja__personajes">
+                    <img class="casillaPrimeraFila" id="casilla1" src="" alt="">
+                    <img class="casillaPrimeraFila" id="casilla2" src="" alt="">
+                    <img class="casillaPrimeraFila" id="casilla3" src="" alt="">
+                    <img class="casillaPrimeraFila" id="casilla4" src="" alt="">
+                    <img class="casillaPrimeraFila" id="casilla5" src="" alt="">
+                    <img class="casillaPrimeraFila" id="casilla6" src="" alt="">
+                    <img class="casillaPrimeraFila" id="casilla7" src="" alt="">
+                    <img class="casillaInvisible" src="" alt="">
+                </section>
+                <section class="segundaFila">
+                    <img class="casillaInvisible" src="" alt="">
+                    <img class="casillaSegundaFila" id="casilla8" src="" alt="">
+                    <img class="casillaSegundaFila" id="casilla9" src="" alt="">
+                    <img class="casillaSegundaFila" id="casilla10" src="" alt="">
+                    <img class="casillaSegundaFila" id="casilla11" src="" alt="">
+                    <img class="casillaSegundaFila" id="casilla12" src="" alt="">
+                    <img class="casillaSegundaFila" id="casilla13" src="" alt="">
+                    <img class="casillaSegundaFila" id="casilla14" src="" alt="">
+                </section>
+                <section class="terceraFila">
+                    <img class="casillaTerceraFila" id="casilla15" src="" alt="">
+                    <img class="casillaTerceraFila" id="casilla16" src="" alt="">
+                    <img class="casillaTerceraFila" id="casilla17" src="" alt="">
+                    <img class="casillaTerceraFila" id="casilla18" src="" alt="">
+                    <img class="casillaTerceraFila" id="casilla19" src="" alt="">
+                    <img class="casillaTerceraFila" id="casilla20" src="" alt="">
+                    <img class="casillaTerceraFila" id="casilla21" src="" alt="">
+                    <img class="casillaInvisible" src="" alt="">
+                </section>
+                <section class="cuartaFila">
+                    <img class="casillaInvisible" src="" alt="">
+                    <img class="casillaCuartaFila" id="casilla22" src="" alt="">
+                    <img class="casillaCuartaFila" id="casilla23" src="" alt="">
+                    <img class="casillaCuartaFila" id="casilla24" src="" alt="">
+                    <img class="casillaCuartaFila" id="casilla25" src="" alt="">
+                    <img class="casillaCuartaFila" id="casilla26" src="" alt="">
+                    <img class="casillaCuartaFila" id="casilla27" src="" alt="">
+                    <img class="casillaCuartaFila" id="casilla28" src="" alt="">
+                </section>
+            </div>
+            <article class="caja__contenedor">
+                <form action="/profile" id="createTeam" method="POST" class="caja__contenedor__formulario">
+                    @csrf
+                    @method('PATCH')
+                    <i class="fa-solid fa-trophy"></i><input class="caja__contenedor__formulario__input" type="number" name="victories" id="victories" value="{{ $team->victories }}">
+                    <i class="fa-solid fa-gamepad"></i><input class="caja__contenedor__formulario__input"type="number" name="num_match" id="num_match" value="{{ $team->num_match }}">
+                    <input type="hidden" name="team_id" value="{{ $team->id }}">
+                    <button class="caja__contenedor__formulario__button--orange"type="submit"><i class="fa-solid fa-plus"></i></button>
+                </form>
+            </article>
         @endforeach
     </section>
 
@@ -257,7 +270,7 @@ use Illuminate\Support\Str;
                                                 "https://raw.communitydragon.org/latest/game/assets/characters/tft10_" +
                                                 teamRows[i].character_id.substr(6).toLowerCase() +
                                                 "/hud/tft10_" + teamRows[i].character_id.substr(6)
-                                            .toLowerCase() + "_square.tft_set10.png";
+                                                .toLowerCase() + "_square.tft_set10.png";
                                         }
                                     }
                                 }

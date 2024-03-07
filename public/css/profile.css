@@ -1,11 +1,178 @@
+@charset "UTF-8";
+/*------------Colores de fondo----------*/
+/*------------Letras (Estilo, color)----------*/
 .caja {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; }
+  padding: 6px 3px 20px 3px;
+  gap: 1px;
+  height: 5vh;
+  flex: 1; }
+  .caja__button--blue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 0px transparent;
+    width: 4vw;
+    height: 4vw;
+    padding-top: 2px;
+    background-color: #d47559;
+    color: white;
+    font-size: 4vw; }
+  .caja__button--orange {
+    border-radius: 5px;
+    border: 0px transparent;
+    width: 4vw;
+    padding: 2px;
+    background-color: #d47559;
+    color: white;
+    font-size: 3vw; }
+    .caja__button--orange:hover {
+      background-color: #df623c; }
+  .caja__datos {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    gap: 1px;
+    width: 20%; }
+    .caja__datos__nombre {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0px;
+      width: 100%;
+      color: rgba(222, 239, 248, 0.877);
+      white-space: nowrap;
+      /* Evita el salto de línea */
+      overflow: hidden;
+      /* Oculta el contenido que no cabe */
+      text-overflow: ellipsis; }
+    .caja__datos__victorias {
+      margin: 0px; }
   .caja__personajes {
     display: flex;
     flex-direction: row;
-    gap: 6px; }
-    .caja__personajes__caja__personajes__personaje {
+    width: 100%;
+    justify-content: center;
+    margin: 0px; }
+    .caja__personajes__personaje {
+      width: 30px;
+      gap: 1px;
+      white-space: nowrap; }
+      .caja__personajes__personaje__imagen {
+        height: 80%; }
+      .caja__personajes__personaje__nombre {
+        display: flex;
+        align-items: center;
+        font-size: 5px;
+        margin: 0px;
+        width: 100%;
+        white-space: nowrap;
+        /* Evita el salto de línea */
+        overflow: hidden;
+        /* Oculta el contenido que no cabe */
+        text-overflow: ellipsis; }
+  .caja__contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 3px 3px 3px;
+    border-bottom: #6aa0a7 solid 1px; }
+    .caja__contenedor__formulario {
       display: flex;
-      flex-direction: column; }
+      flex-direction: row;
+      align-items: center;
+      gap: 2px; }
+      .caja__contenedor__formulario__input {
+        background-color: rgba(222, 239, 248, 0.877);
+        border: 0px transparent;
+        border-radius: 5px;
+        height: 3vh;
+        width: 15vw;
+        padding: 2px;
+        margin: 5px 8px 9px 8px;
+        font-size: small; }
+      .caja__contenedor__formulario__button--orange {
+        border-radius: 5px;
+        border: 0px transparent;
+        width: 10vw;
+        padding: 5px;
+        margin: 5px 8px 9px 8px;
+        background-color: #d47559;
+        color: white;
+        font-size: 3vw; }
+        .caja__contenedor__formulario__button--orange__a {
+          color: white; }
+        .caja__contenedor__formulario__button--orange:hover {
+          background-color: #df623c; }
+
+.titulo {
+  padding: 0px 5px 0px 5px; }
+
+@media (min-width: 695px) {
+  .caja {
+    padding: 10px 5px 20px 5px;
+    height: 7vw; }
+    .caja__datos {
+      font-size: 15px;
+      gap: 1px;
+      width: 25%; }
+      .caja__datos__nombre {
+        margin: 0px;
+        width: 100%; }
+    .caja__personajes {
+      width: 100%;
+      margin: 0px;
+      gap: 20px; }
+      .caja__personajes__personaje {
+        width: 55px;
+        gap: 7px; }
+        .caja__personajes__personaje__imagen {
+          height: 85%; }
+        .caja__personajes__personaje__nombre {
+          font-size: 10px; }
+    .caja__contenedor__formulario__input {
+      height: 2vh;
+      width: 10vw;
+      padding: 5px;
+      margin: 7px 12px 13px 13px;
+      font-size: small; }
+    .caja__contenedor__formulario__button--orange {
+      width: 6vw;
+      padding: 5px;
+      margin: 3px 5px 7px 4px;
+      font-size: 2vw; } }
+
+@media (min-width: 1200px) {
+  .caja {
+    height: 10vw; }
+    .caja__datos {
+      font-size: 25px;
+      gap: 3px;
+      width: 80px; }
+      .caja__datos__nombre {
+        margin: 0px; }
+    .caja__personajes {
+      width: 100vw;
+      margin: 0px;
+      gap: 80px; }
+      .caja__personajes__personaje {
+        width: 50px; }
+        .caja__personajes__personaje__imagen {
+          height: 75%; }
+        .caja__personajes__personaje__nombre {
+          font-size: 15px; }
+    .caja__contenedor__formulario__input {
+      height: 2vh;
+      width: 10vw;
+      padding: 5px;
+      margin: 7px 12px 13px 13px;
+      font-size: small; }
+    .caja__contenedor__formulario__button--orange {
+      width: 3vw;
+      padding: 4px; } }

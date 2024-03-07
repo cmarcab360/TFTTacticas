@@ -10,6 +10,7 @@
     <link href="css/header.css" rel="stylesheet">
     <link href="css/creaTeam.css" rel="stylesheet">
     <link href="css/profile.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/360f8408f4.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

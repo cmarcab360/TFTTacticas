@@ -56,10 +56,6 @@
           color: white; }
         .contenedor__article__formulario__button:hover {
           background-color: #df623c; }
-      .contenedor__article__formulario__button--blue {
-        background-color: #2f94d0; }
-        .contenedor__article__formulario__button--blue:hover {
-          background-color: #127ab6; }
 
 @media (min-width: 425px) {
   .contenedor {
@@ -91,7 +87,7 @@
   .contenedor__article {
     height: 60vh; }
     .contenedor__article__formulario {
-      height: 56vh; }
+      height: 58vh; }
       .contenedor__article__formulario__input__caja {
         padding: 15px 10px;
         font-size: large; }
