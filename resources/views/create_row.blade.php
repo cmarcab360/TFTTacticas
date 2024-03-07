@@ -72,23 +72,9 @@
                 <img class="casillaCuartaFila" id="casilla28" src="" alt="">
             </section>
         </aside>
-
-        <!-- Muestra las todas las filas del team-->
-        @if (session('teamRows'))
-            <h4 class="section__h4">Campeones seleccionados</h4>
-            <table class="section__table">
-                @php
-                    $sortedRows = session('teamRows')->sortBy('position');
-                @endphp
-                @foreach ($sortedRows as $row)
-                    <tr>
-                        <td class="campeon">{{ str_replace('TFT10_', '', $row->character_id) }}</td>
-                        <td>{{ $row->position }}</td>
-                    </tr>
-                @endforeach
-            </table>
-        @endif
-        <button><a href="/profile">Volver a la pagina principal</a></button>
+        <button class="section__button">
+            <a class="section__button__goBack" href="/profile">Volver a la pagina principal</a>
+        </button>
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

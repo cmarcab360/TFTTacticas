@@ -1,3 +1,5 @@
+$color-fondo-buttons-logout: #d47559;
+$color-fondo-buttons-logout-hover: #df623c;
 .section {
     &__h3 {
         text-align: center;
@@ -47,6 +49,29 @@
         justify-content: center;
         align-items: center;
     }
+
+    &__button
+    {
+        display: flex;
+        margin: 0.313rem;
+        padding: 0.313rem;
+        border-radius: 0.313rem;
+        border: 0px transparent;
+        background-color: $color-fondo-buttons-logout;
+        &__goBack
+        {
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        &:hover {
+            background-color: $color-fondo-buttons-logout-hover;
+        }
+    
+    }
+
 }
 
 @media (max-width: 352px) {

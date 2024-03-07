@@ -115,8 +115,8 @@ function mostrarDatosApi() {
                     document.getElementById("addChamp").submit();
                 });
                 document.getElementById(`casilla${i}`).addEventListener("mouseover", function () {
-                    document.getElementById(`casilla${i}`).style.backgroundColor = "#cff136";
-                    document.getElementById(`casilla${i}`).style.borderColor = "#cff136";
+                    document.getElementById(`casilla${i}`).style.backgroundColor = "#d47559";
+                    document.getElementById(`casilla${i}`).style.borderColor = "#d47559";
                     
                 });
                 document.getElementById(`casilla${i}`).addEventListener("mouseout", function () {

@@ -39,6 +39,21 @@
   justify-content: center;
   align-items: center; }
 
+.section__button {
+  display: flex;
+  margin: 0.313rem;
+  padding: 0.313rem;
+  border-radius: 0.313rem;
+  border: 0px transparent;
+  background-color: #d47559; }
+  .section__button__goBack {
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none; }
+  .section__button:hover {
+    background-color: #df623c; }
+
 @media (max-width: 352px) {
   .casillaPrimeraFila,
   .casillaSegundaFila,
