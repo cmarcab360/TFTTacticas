@@ -20,6 +20,7 @@
       src="https://kit.fontawesome.com/f0d12fad38.js"
       crossorigin="anonymous"
     ></script>
+    <link href="css/profile.css" rel="stylesheet">
 </head>
 
 <body>

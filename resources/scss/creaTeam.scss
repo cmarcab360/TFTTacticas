@@ -21,7 +21,6 @@ $font-color-buttons: white;
     flex: 1;
     &__article {
         display: flex;
-        gap: 15px;
         height: 40vh;
         align-items: center;
 
@@ -37,7 +36,6 @@ $font-color-buttons: white;
             flex: 1;
             display: flex;
             flex-direction: column;
-
             border-radius: 7px;
             background-color: $color-fondo-form;
             font-size: 3vw;
@@ -72,7 +70,7 @@ $font-color-buttons: white;
                 border: 0px transparent;
                 width: 20vw;
                 padding: 5px;
-                margin: 3px 8px 16px 8px;
+                margin: 5px 8px 0px 8px;
                 background-color: $color-fondo-buttons;
                 color: $font-color-buttons;
                 font-size: 3vw;
@@ -84,35 +82,30 @@ $font-color-buttons: white;
                     background-color: $color-fondo-buttons-hover;
                 }
             }
-            &__button--blue {
-                background-color: $color-fondo-buttons-register;
-                &:hover {
-                    background-color: $color-fondo-buttons-register-hover;
-                }
-            }
         }
     }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 425px) {
     .contenedor {
+        gap: 5px;
         &__article {
-            height: 50vh;
-
+            height: 60vh;
+            gap: 5px;
             &__imagen {
                 flex: 1;
-                height: 100%;
+                height: 55vh;
                 width: auto;
             }
             &__formulario {
-                height: 40vh;
+                height: 50vh;
                 font-size: medium;
-                padding: 20px 20px;
+                padding: 10px 10px;
                 &__input {
                     &__caja {
                         height: 1vh;
                         width: 30vw;
-                        padding: 15px 10px;
+                        padding: 10px 5px;
                         font-size: medium;
                     }
                 }
@@ -132,10 +125,20 @@ $font-color-buttons: white;
     .contenedor {
         &__article {
             height: 60vh;
-
             &__formulario {
-                height: 55vh;
-
+                height: 58vh;
+                &__input {
+                    &__caja {
+                        padding: 15px 10px;
+                        font-size: large;
+                    }
+                    &__label {
+                        font-size: x-large;
+                    }
+                }
+                &__button {
+                    font-size: x-large;
+                }
             }
         }
     }
