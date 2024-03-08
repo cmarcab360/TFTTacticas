@@ -173,9 +173,9 @@ use Illuminate\Support\Str;
                     @csrf
                     @method('PATCH')
                     <i class="fa-solid fa-trophy"></i><input class="caja__contenedor__formulario__input"
-                        type="number" name="victories" id="victories" value="{{ $team->victories }}">
+                        type="number" title="Number of victories" name="victories" id="victories" value="{{ $team->victories }}">
                     <i class="fa-solid fa-gamepad"></i><input class="caja__contenedor__formulario__input"type="number"
-                        name="num_match" id="num_match" value="{{ $team->num_match }}">
+                        name="num_match" title="Number of matches" id="num_match" value="{{ $team->num_match }}">
                     <input type="hidden" name="team_id" value="{{ $team->id }}">
                     <button class="caja__contenedor__formulario__button--orange"type="submit"><i
                             class="fa-solid fa-plus"></i></button>
