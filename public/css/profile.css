@@ -61,7 +61,8 @@
         width: 15vw;
         padding: 2px;
         margin: 5px 8px 9px 8px;
-        font-size: small; }
+        font-size: small;
+        text-align: center; }
       .caja__contenedor__formulario__button--orange {
         border-radius: 5px;
         border: 0px transparent;
@@ -160,7 +161,7 @@
       width: 10vw;
       padding: 4px 3px 15px 3px;
       margin: 7px 12px 13px 13px;
-      font-size: small; }
+      font-size: 6px; }
     .caja__contenedor__formulario__button--orange {
       width: 5vw;
       padding: 4px;
@@ -214,9 +215,9 @@
     .caja__contenedor__formulario__input {
       height: 2vh;
       width: 7vw;
-      padding: 4px 3px 20px 3px;
+      padding: 8px 3px 8px 3px;
       margin: 7px 12px 13px 13px;
-      font-size: small; }
+      font-size: medium; }
     .caja__contenedor__formulario__button--orange {
       width: 3vw;
       padding: 3px;

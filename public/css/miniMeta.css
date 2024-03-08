@@ -5,7 +5,7 @@
   border: solid #223941 1px;
   border-radius: 7px;
   width: 12%;
-  position: absolute;
+  position: sticky;
   bottom: 0;
   left: 0; }
   .menu__title {
