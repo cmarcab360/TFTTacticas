@@ -5,7 +5,9 @@ const buttons = document.querySelectorAll(".show-hide");
 const buttonArray = Array.from(buttons);
 
 // Para cada botón con la clase show-hide, agregar un evento click que muestra u oculta el elemento asociado
-buttonArray.forEach((button) => button.addEventListener("click", toggleTablero));
+buttonArray.forEach((button) =>
+    button.addEventListener("click", toggleTablero)
+);
 
 // Función para mostrar u ocultar el elemento asociado
 function toggleTablero(event) {
@@ -17,8 +19,13 @@ function toggleTablero(event) {
 
     // Cambiar la propiedad de estilo display del elemento asociado
     if (targetElement.style.display === "block") {
+        console.log(event);
         targetElement.style.display = "none";
+        //event.target.innerHTML = "<i class='fa-solid fa-plus'></i>";
+        
     } else {
+        console.log(event);
         targetElement.style.display = "block";
+        //event.target.innerHTML = "<i class='fa-solid fa-minus'></i>";
     }
 }

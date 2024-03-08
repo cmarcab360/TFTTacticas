@@ -66,6 +66,7 @@ function mostrarDatosApi() {
                 }
             }
 
+            console.log(contenedor);
             const datalist = document.getElementById("campeonesList");
             const div = document.getElementById("iconosFichas");
 
@@ -88,63 +89,41 @@ function mostrarDatosApi() {
                     .toLowerCase()}_square.tft_set10.png`;
                 img.alt = `${campeon}`;
                 img.id = campeon;
+                img.className = "section__iconos__img";
+                //añadirle tambien un evento onclick para que al hacer click en la imagen se escriba en el input del datalist el id de la imagen
+                img.addEventListener("click", function () {
+                    document.getElementById("character_id").value = campeon;
+                    //las imagenes estan oscurecidas y cuando se hace click se iluminan a su valor original, si se hace click en otra imagen se ilumina y la anterior se oscurece. Además aparece un borde luminoso alrededor de la imagen seleccionada
+                    const imagenes = document.querySelectorAll(".section__iconos__img");
+                    imagenes.forEach((imagen) => {
+                        imagen.style.filter = "brightness(0.4)";
+                        imagen.style.boxShadow = "0 0 0px";
+                    });
+                    img.style.filter = "brightness(1)";
+                    img.style.boxShadow = "0 0 10px rgba(255, 255, 0, 1)";
+                
+                });
                 img.style.width = "75px";
                 img.style.height = "75px";
                 div.appendChild(img);
             });
 
-            // Agrega un listener para el evento 'keyup'
-            if (window.addEventListener) {
-                positionInput.addEventListener("keyup", function () {
-                    // Obtiene el valor ingresado en el input
-                    const positionValue = parseInt(positionInput.value);
-
-                    // Restablece el estilo de todas las casillas
-                    resetCasillasStyle();
-
-                    if (
-                        !isNaN(positionValue) &&
-                        positionValue >= 1 &&
-                        positionValue <= 28
-                    ) {
-                        // Ilumina la casilla correspondiente
-                        iluminarCasilla(positionValue);
-                    }
+            //Cuando hago click en elemento con id casilla[i] (desde casilla1 hasta casilla28), en el input hidden con id="position" se escribe el valor de i y si hago click, se hace el submit de la pagina. Cuando tengo el cursor encima de la casilla, se colorea de amarillo, y cuando lo quito, se quita el color.
+            for (let i = 1; i <= 28; i++) {
+                document.getElementById(`casilla${i}`).addEventListener("click", function () {
+                    positionInput.value = i;
+                    document.getElementById("addChamp").submit();
                 });
-            } else {
-                positionInput.attachEvent("onkeyup", function () {
-                    // Obtiene el valor ingresado en el input
-                    const positionValue = parseInt(positionInput.value);
-
-                    // Restablece el estilo de todas las casillas
-                    resetCasillasStyle();
-
-                    if (
-                        !isNaN(positionValue) &&
-                        positionValue >= 1 &&
-                        positionValue <= 28
-                    ) {
-                        // Ilumina la casilla correspondiente
-                        iluminarCasilla(positionValue);
-                    }
+                document.getElementById(`casilla${i}`).addEventListener("mouseover", function () {
+                    document.getElementById(`casilla${i}`).style.backgroundColor = "#d47559";
+                    document.getElementById(`casilla${i}`).style.borderColor = "#d47559";
+                    
                 });
-            }
-
-            function resetCasillasStyle() {
-                const casillas = document.querySelectorAll(
-                    ".casillaPrimeraFila, .casillaSegundaFila, .casillaTerceraFila, .casillaCuartaFila"
-                );
-                casillas.forEach((casilla) => {
-                    casilla.style.backgroundColor = ""; // Restablece el color de fondo
+                document.getElementById(`casilla${i}`).addEventListener("mouseout", function () {
+                    document.getElementById(`casilla${i}`).style.backgroundColor = "#E0E3E4";
+                    document.getElementById(`casilla${i}`).style.borderColor = "transparent";
+                    
                 });
-            }
-
-            function iluminarCasilla(position) {
-                const casillaId = "casilla" + position;
-                const casillaIluminar = document.getElementById(casillaId);
-
-                // Ilumina la casilla cambiando el color de fondo
-                casillaIluminar.style.backgroundColor = "#FDFD96";
             }
         });
 }

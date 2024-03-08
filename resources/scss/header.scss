@@ -1,0 +1,103 @@
+$header-color-background: #102531;
+$header-color-font: #6aa0a7;
+$header-color-border: #223941;
+$font-color: #e0e3e4;
+$color-fondo-buttons:#2F94D0;
+$color-fondo-buttons-hover:#127ab6;
+$color-fondo-buttons-logout: #d47559;
+$color-fondo-buttons-logout-hover: #df623c;
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $header-color-background;
+    border: solid $header-color-border 1px;
+
+    &__welcome {
+        display: flex;
+        align-items: center;
+        color: $font-color;
+        margin-left: 1rem;
+        width: 30%;
+    }
+
+    &__picture{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+            &__logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1px 1px 1px 1px;
+            width: 50%;
+            height: auto;
+        }
+    }
+
+    &__options{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        &__create{
+            border-radius: 7px;
+            border: 0px transparent;
+            width: 50%;
+            padding: 5px 5px;
+            margin: 3px 3px 3px 3px;
+            background-color: $color-fondo-buttons;
+            font-size: 85%;
+            & a{
+                color:$font-color;
+            }
+            &:hover{
+                background-color:$color-fondo-buttons-hover;
+            }
+        }
+
+        &__button{
+            display: flex;
+            width: 50%;
+                
+            &__logout{
+                width: 100%;
+                padding: 5px 5px;
+                margin: 3px 3px 3px 3px;
+                border-radius: 7px;
+                border: 0px transparent;
+                color:$font-color;
+                background-color: $color-fondo-buttons-logout;
+                font-size: 85%;
+                &:hover{
+                    background-color:$color-fondo-buttons-logout-hover;
+                }
+
+            }
+        }
+    }
+}
+/*---------------------Media------------------------*/
+@media (min-width: 700px) {
+    .header {
+        &__options{
+            justify-content: flex-end;
+            &__create{
+                width: 30%;
+            }
+            &__button{
+                width: 30%;
+                &__logout{
+                   // width: 30%;
+                }
+            }
+        }
+        &__picture{
+            &__logo {
+                width: 80%;
+            }
+        }
+    }
+}
