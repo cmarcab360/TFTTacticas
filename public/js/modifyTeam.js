@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!Validation.validateVictories(victories, num_match)) {
             $('#myTeam').nextAll('.error').remove();
-            $('#myTeam').after('<p class="error">TThe number of victories cannot be equal to 0 or exceed the total number of matches played.</p>');
+            $('#myTeam').after('<p class="error">The number of victories cannot be equal to 0 or exceed the total number of matches played.</p>');
         } else {
             this.submit();
         }
