@@ -88,4 +88,5 @@
         });
     </script>
     <script src="{{ asset('js/filtradoPersonajesCreateRow.js') }}"></script>
+    <x-miniMeta />
 </x-layout>
