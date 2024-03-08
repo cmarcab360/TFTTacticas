@@ -3,7 +3,7 @@
 import Validation from "./validation.js";
 
 // Evento para validar los campos
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("load", () => {
     $("#createTeam").submit(function (event) {
         event.preventDefault();
         let victories = $("#victories").val();
