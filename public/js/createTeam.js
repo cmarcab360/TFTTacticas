@@ -1,5 +1,5 @@
 //Importar la clase
-
+/*
 import Validation from "./validation.js";
 
 // Evento para validar los campos
@@ -18,3 +18,4 @@ document.addEventListener("load", () => {
     });
 });
 
+*/

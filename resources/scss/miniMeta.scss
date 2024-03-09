@@ -3,14 +3,14 @@ $color-menu:#123040;
 $color-menu-title:#DF623C;
 $font-color-menu: #e0e3e4;
 $color-equipos: #112D3C;
+$color-primario: #0d202b;
 .menu{
     display: flex;
     flex-direction: column;
     background-color:$color-menu;
-    border: solid $border-color-menu 1px;
     border-radius: 7px;
-    width: 12%;
-
+    width: 8%;
+    background-color: $color-primario;
     position: sticky;
     bottom: 0;
     left: 0;
