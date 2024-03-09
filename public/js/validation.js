@@ -16,12 +16,13 @@ class Validation {
         return true;
     }
 
+    /*
     static validateVictories(victories, num_match) {
         if (victories < 0 || victories > num_match) {
             return false;
         }
         return true;
-    }
+    }*/
 }
 
 
