@@ -272,7 +272,7 @@ use Illuminate\Support\Str;
     </script>
 
     <script src="{{ asset('js/show-hide.js') }}"></script>
-    <script src="{{ asset('js/Meta.js') }}"></script>
+    <script src="{{ asset('js/meta.js') }}"></script>
     <script type="module" src="js/modifyTeam.js"></script>
     <script type="module" src="js/validation.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
