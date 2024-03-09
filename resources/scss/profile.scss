@@ -16,10 +16,10 @@ $font-color-buttons: white;
 .caja {
     display: flex;
     flex-direction: row;
-    padding: 6px 7px 5px 7px;
+    padding: 4px 7px 4px 7px;
     gap: 5px;
     height: 5vh;
-    justify-content: space-around;
+    justify-content: center;
     &__datos {
         display: flex;
         flex-direction: column;
@@ -46,20 +46,21 @@ $font-color-buttons: white;
     &__personajes {
         display: flex;
         flex-direction: row;
+        
         width: 100%;
-        justify-content: space-between;
+        justify-content: space-around;
         margin: 0px;
         padding: 3px;
         &__personaje {
+            flex-wrap: wrap;
+            flex: 1;
             width: 30px;
             gap: 1px;
-
+            text-align: center;
             &__imagen {
                 height: 100%;
-                text-align: center;
             }
             &__nombre {
-                text-align: center;
                 font-size: 5px;
                 margin: 0px;
                 width: 100%;
@@ -195,6 +196,7 @@ $font-color-buttons: white;
     .caja {
         padding: 10px 5px 5px 5px;
         height: 7vw;
+
         &__datos {
             font-size: 15px;
             gap: 1px;
@@ -280,7 +282,7 @@ $font-color-buttons: white;
     .caja {
         height: 10vw;
         padding: 6px 25px 5px 25px;
-        gap: 1px;
+        gap: 5px;
         &__datos {
             font-size: 20px;
             gap: 3px;
@@ -315,7 +317,6 @@ $font-color-buttons: white;
                     padding: 8px 3px 8px 3px;
                     margin: 7px 12px 13px 13px;
                     font-size: medium;
-                    
                 }
                 &__button--orange {
                     width: 3vw;
