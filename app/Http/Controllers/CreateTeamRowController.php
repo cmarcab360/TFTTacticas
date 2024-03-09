@@ -9,7 +9,7 @@ class CreateTeamRowController extends Controller
 {
     public function createRow()
     {
-        return view('create_Row');
+        return view('create_row');
     }
 
     public function storeRow(Request $request)
